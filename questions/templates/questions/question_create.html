@@ -1,0 +1,601 @@
+
+{% extends 'main/base.html' %}
+
+{% block title%}
+Ask a Question
+{% endblock %}
+
+
+{% block content%}
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+        StackExchange.scrollPadding.setPaddingTop(50, 10);
+    </script>
+
+
+
+
+
+    <div class="container">
+
+
+        <div id="content" class="pt0 snippet-hidden">
+
+
+
+<script type="application/json" data-role="module-args" data-module-name="entry-points/ask/ask-staging-ground.mod">{"defaultMarkdownMode":1,"hasDraftTitle":false,"draftProblemDetails":"","draftExpectedResults":"","draftBody":"","hasDraftTags":false,"minTitleLength":15,"maxTitleLength":150,"minBodyLength":220,"isUserInExperiment":false,"minSectionLength":20}</script>
+<script defer src="https://cdn.sstatic.net/Js/ask/ask-staging-ground.en.js?v=bacddfcfbf18"></script>
+
+<div class="box-border w100">
+
+    <form id="post-form"
+          class="post-form js-post-form"
+          action="/questions/ask/submit"
+          method="post"
+          data-validation-warnings=""
+          data-validation-errors=""
+          data-form-type="question"
+          data-force-heartbeat-at-body-length="220"
+          data-force-heartbeat-at-title-length="15"
+          data-enable-analytics="true"
+          data-inbox-subscription="2"
+          data-required-tags=""
+          data-referrer="0">
+
+        <input name="IsAskStagingGround" type="hidden" value="true">
+
+        <input type="hidden" name="priorAttemptCount" class="js-post-prior-attempt-count" value="0" />
+        <input type="hidden" name="warntags" class="js-warned-tags-field" />
+
+        <main id="question-form" class="mb48">
+
+            <div class="js-write-question-notice">
+                <div class="d-flex ai-center bg-no-repeat bg-right-bottom wide:bg-image-ask-v2 wide:h-ask-v2-background">
+                    <h1 class="fs-headline1 fw-bold mt24">Ask a question</h1>
+                </div>
+
+                <div class="d-flex w100 ai-center mb24 mtn32 md:mt0">
+                    <div class="s-notice s-notice__info p24 w70 lg:w100">
+                        <h2 class="fs-title fw-normal mb8">Writing a good question</h2>
+                        <h5 class="fw-bold mb8">Steps</h5>
+                        <ul class="mb0">
+                            <li>Summarize your problem in a one-line title.</li>
+                            <li>Describe your problem in more detail.</li>
+                            <li>Describe what you tried and what you expected to happen.</li>
+                            <li>Add &#x201C;tags&#x201D; which help surface your question to members of the community.</li>
+                            <li>Review your question and post it to the site.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-review-notice d-none">
+                <div class="d-flex ai-center bg-no-repeat bg-right-bottom wide:bg-image-ask-v2 wide:h-ask-v2-background">
+                    <h1 class="fs-headline1 fw-bold mt24">Review your question</h1>
+                </div>
+                <div class="d-flex w100 ai-center mb24 mtn32 md:mt0">
+                    <div class="s-notice s-notice__info w70 lg:w100">
+                        <p class="fs-body2 mbn4">Please do a final review of your question and then post.</p>
+                    </div>
+                </div>
+             </div>
+
+
+            <div class="d-flex w100 lg:fd-column-reverse ai-start gs16">
+                <div class="flex--item w70 lg:w100 bg-white bar-sm p24 ba bc-black-075 fl-shrink0 js-post-title-section" id="post-title">
+                    <div class="d-flex gs4 gsy fd-column js-stacks-validation">
+                        <div class="d-flex fd-column flex--item">
+                            <div class="flex--item">
+                                <label for="title" class="s-label">
+                                    Title
+                                </label>
+                            </div>
+                            <div class="d-flex flex--item md:fd-column">
+                                <div class="s-description flex--item9 my2">
+                                    <label for="title">
+                                        Be specific and imagine you&#x2019;re asking a question to another person.
+                                    </label>
+                                </div>
+                                <div class="flex--item3 s-input-message js-title-text-counter ta-right md:ta-left my2 s-description py2"></div>
+                            </div>
+                        </div>
+                        <div class="d-flex ps-relative">
+                            <input id="title" name="title" type="text" maxlength="300"
+                                placeholder="e.g. Is there an R function for finding the index of an element in a vector?"
+                                class="s-input js-post-title-field ask-title-field"
+                                value=""
+                                data-min-length="15"
+                                data-max-length="150">
+                            <svg aria-hidden="true" class="s-input-icon js-title-invalid-alert d-none svg-icon iconAlertCircle" width="18" height="18" viewBox="0 0 18 18"><path d="M9 17c-4.36 0-8-3.64-8-8 0-4.36 3.64-8 8-8 4.36 0 8 3.64 8 8 0 4.36-3.64 8-8 8ZM8 4v6h2V4H8Zm0 8v2h2v-2H8Z"/></svg>
+                        </div>
+                        <div class="flex--item s-input-message d-none js-stacks-validation-message"></div>
+                    </div>
+                    <button class="flex--item s-btn s-btn__primary mt8 js-next-title js-next-buttons d-none" type="button">Next</button>
+                </div>
+
+                <div class="flex--item js-title-sidebar js-sidebar-toggler s-card p0 bs-sm g:mb8 w100">
+                    <div class="fs-body2 bb bc-black-100 bg-black-025 p12">
+                        Writing a good title
+                    </div>
+                    <div class="bg-white d-flex gsx gs16 m16">
+                        <div class="flex--item">
+                            <svg aria-hidden="true" class="native svg-spot spotPencil" width="48" height="48" viewBox="0 0 48 48"><path opacity=".2" d="M31.52 5.2a.34.34 0 0 0-.46.08L7 39.94a.34.34 0 0 0-.06.16l-.54 5.21c-.03.26.24.45.48.34l4.77-2.29c.05-.02.1-.06.13-.1L35.83 8.58a.34.34 0 0 0-.09-.47l-4.22-2.93Z"/><path d="M28.53 2.82c.4-.58 1.2-.73 1.79-.32l4.22 2.92c.58.4.72 1.2.32 1.79L10.82 41.87c-.13.18-.3.33-.5.43l-4.77 2.28c-.9.44-1.93-.29-1.83-1.29l.55-5.2c.02-.22.1-.43.22-.6L28.53 2.81Zm4.43 3.81L29.74 4.4 28.2 6.6l3.22 2.24 1.53-2.21Zm-2.6 3.76-3.23-2.24-20.32 29.3 3.22 2.24 20.32-29.3ZM5.7 42.4 8.62 41l-2.57-1.78-.34 3.18Zm35.12.3a1 1 0 1 0-.9-1.78 35 35 0 0 1-7.94 3.06c-1.93.43-3.8.3-5.71-.04-.97-.17-1.93-.4-2.92-.64l-.3-.07c-.9-.21-1.81-.43-2.74-.62-2.9-.58-6.6-.49-9.43.65a1 1 0 0 0 .74 1.86c2.4-.96 5.68-1.07 8.3-.55.88.18 1.77.4 2.66.6l.3.08c1 .24 2 .48 3.03.66 2.07.37 4.22.53 6.5.02 3-.67 5.77-1.9 8.41-3.22Z"/></svg>
+                        </div>
+                        <div class="flex--item">
+                            <p class="fs-caption">Your title should summarize the problem. You will be able to edit the title after writing out the rest of the question.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-problem-details-section mt12 d-flex w100 lg:fd-column-reverse ai-start gs16">
+                <div class="flex--item bg-white bar-sm ba bc-black-075 w70 lg:w100 fl-shrink0" id="post-problem-details">
+                    <div class="js-problem-details-overlay js-overlay-enabled o30 t0 b0 bg-black-075 p24 c-not-allowed">
+                        <div class="d-flex gs4 gsy fd-column js-stacks-validation">
+                            <div class="flex--item">
+                                <label for="problem-details" class="d-block s-label c-not-allowed">
+                                    What are the details of your problem?
+                                    <p class="s-description mt2 mb6">Introduce the problem and expand on what you put in the title. Minimum 20 characters.</p>
+                                </label>
+                            </div>
+                            <div class="js-problem-details-field" id="problem-details"></div>
+                        </div>
+                        <button class="s-btn s-btn__primary mt12 js-next-problem-details js-next-buttons d-none" disabled type="button">Next</button>
+                    </div>
+                </div>
+
+                <div class="flex--item js-problem-details-sidebar js-sidebar-toggler s-card p0 bs-sm g:mb8 d-none w100">
+                    <div class="fs-body2 bb bc-black-100 bg-black-025 p12">
+                        Introduce the problem
+                    </div>
+                    <div class="bg-white d-flex gsx gs16 m16">
+                        <div class="flex-item">
+                            <svg aria-hidden="true" class="native svg-spot spotPencil" width="48" height="48" viewBox="0 0 48 48"><path opacity=".2" d="M31.52 5.2a.34.34 0 0 0-.46.08L7 39.94a.34.34 0 0 0-.06.16l-.54 5.21c-.03.26.24.45.48.34l4.77-2.29c.05-.02.1-.06.13-.1L35.83 8.58a.34.34 0 0 0-.09-.47l-4.22-2.93Z"/><path d="M28.53 2.82c.4-.58 1.2-.73 1.79-.32l4.22 2.92c.58.4.72 1.2.32 1.79L10.82 41.87c-.13.18-.3.33-.5.43l-4.77 2.28c-.9.44-1.93-.29-1.83-1.29l.55-5.2c.02-.22.1-.43.22-.6L28.53 2.81Zm4.43 3.81L29.74 4.4 28.2 6.6l3.22 2.24 1.53-2.21Zm-2.6 3.76-3.23-2.24-20.32 29.3 3.22 2.24 20.32-29.3ZM5.7 42.4 8.62 41l-2.57-1.78-.34 3.18Zm35.12.3a1 1 0 1 0-.9-1.78 35 35 0 0 1-7.94 3.06c-1.93.43-3.8.3-5.71-.04-.97-.17-1.93-.4-2.92-.64l-.3-.07c-.9-.21-1.81-.43-2.74-.62-2.9-.58-6.6-.49-9.43.65a1 1 0 0 0 .74 1.86c2.4-.96 5.68-1.07 8.3-.55.88.18 1.77.4 2.66.6l.3.08c1 .24 2 .48 3.03.66 2.07.37 4.22.53 6.5.02 3-.67 5.77-1.9 8.41-3.22Z"/></svg>
+                        </div>
+                        <div class="flex--item">
+                            <p class="fs-caption">Explain how you encountered the problem you&#x2019;re trying to solve, and any difficulties that have prevented you from solving it yourself.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-problem-results-section mt12 d-flex w100 lg:fd-column-reverse ai-start gs16">
+                <div class="flex--item w70 lg:w100 ps-relative bg-white bar-sm ba bc-black-075 fl-shrink0" id="post-problem-results">
+                    <div class="js-problem-results-overlay js-overlay-enabled o30 t0 b0 bg-black-075 p24 c-not-allowed">
+                        <div class="d-flex gs4 gsy fd-column js-stacks-validation">
+                            <div class="flex--item">
+                                <label for="problem-results" class="d-block s-label c-not-allowed">
+                                    What did you try and what were you expecting?
+                                    <p class="s-description mt2 mb6">Describe what you tried, what you expected to happen, and what actually resulted. Minimum 20 characters.</p>
+                                </label>
+                            </div>
+                            <div class="js-problem-results-field" id="problem-results"></div>
+                        </div>
+                        <button class="s-btn s-btn__primary mt12 js-next-problem-results js-next-buttons d-none" disabled type="button">Next</button>
+                    </div>
+                </div>
+
+                <div class="flex--item js-problem-results-sidebar js-sidebar-toggler s-card p0 bs-sm g:mb8 d-none w100">
+                    <div class="fs-body2 bb bc-black-100 bg-black-025 p12">
+                        Expand on the problem
+                    </div>
+                    <div class="bg-white d-flex gsx gs16 m16">
+                        <div class="flex-item">
+                            <svg aria-hidden="true" class="native svg-spot spotPencil" width="48" height="48" viewBox="0 0 48 48"><path opacity=".2" d="M31.52 5.2a.34.34 0 0 0-.46.08L7 39.94a.34.34 0 0 0-.06.16l-.54 5.21c-.03.26.24.45.48.34l4.77-2.29c.05-.02.1-.06.13-.1L35.83 8.58a.34.34 0 0 0-.09-.47l-4.22-2.93Z"/><path d="M28.53 2.82c.4-.58 1.2-.73 1.79-.32l4.22 2.92c.58.4.72 1.2.32 1.79L10.82 41.87c-.13.18-.3.33-.5.43l-4.77 2.28c-.9.44-1.93-.29-1.83-1.29l.55-5.2c.02-.22.1-.43.22-.6L28.53 2.81Zm4.43 3.81L29.74 4.4 28.2 6.6l3.22 2.24 1.53-2.21Zm-2.6 3.76-3.23-2.24-20.32 29.3 3.22 2.24 20.32-29.3ZM5.7 42.4 8.62 41l-2.57-1.78-.34 3.18Zm35.12.3a1 1 0 1 0-.9-1.78 35 35 0 0 1-7.94 3.06c-1.93.43-3.8.3-5.71-.04-.97-.17-1.93-.4-2.92-.64l-.3-.07c-.9-.21-1.81-.43-2.74-.62-2.9-.58-6.6-.49-9.43.65a1 1 0 0 0 .74 1.86c2.4-.96 5.68-1.07 8.3-.55.88.18 1.77.4 2.66.6l.3.08c1 .24 2 .48 3.03.66 2.07.37 4.22.53 6.5.02 3-.67 5.77-1.9 8.41-3.22Z"/></svg>
+                        </div>
+                        <div class="flex--item fs-caption">
+                            <p>Show what you&#x2019;ve tried, tell us what happened, and why it didn&#x2019;t meet your needs.</p>
+                            <p>Not all questions benefit from including code, but if your problem is better understood with code you’ve written, you should include a <a href="https://stackoverflow.com/help/minimal-reproducible-example">minimal, reproducible example</a>.</p>
+                            <p>Please make sure to post code and errors as text directly to the question (and <a href="https://meta.stackoverflow.com/questions/285551">not as images</a>), and <a href="https://stackoverflow.com/help/formatting">format them appropriately</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-body-editor-container d-flex w100 lg:fd-column-reverse ai-start d-none gs16 mt12"
+                 data-controller="s-popover"
+                 data-s-popover-reference-selector="#body-title"
+                 data-s-popover-hide-on-outside-click="never">
+                <div class="flex--item bg-white bar-sm ba bc-black-075 w70 lg:w100 js-hidden-editor p24 fl-shrink0">
+                    <div class="d-flex gs4 gsy fd-column">
+                        <div class="flex--item">
+                            <label for="title" class="d-block s-label" id="body-title" aria-controls="body-popover">
+                                Body
+                                <p class="s-description mt2">
+                                    <span id="body-title-description">
+                                        The body of your question contains your problem details and results. Minimum 30 characters.
+                                    </span>
+                                </p>
+                            </label>
+
+                            <div id="body-popover" class="s-popover mt8 js-body-popover" role="menu">
+                                <div class="s-popover--arrow"></div>
+                                <h2 class="fs-body3">Question &#x201C;body&#x201D; <svg aria-hidden="true" class="native svg-icon iconWave" width="18" height="18" viewBox="0 0 18 18"><path d="M10.7 17c-2.3 0-3.9-2.05-5.07-3.54l-.49-.6c-.67-.8-1.59-1.63-2.4-2.36A10.91 10.91 0 0 1 1.1 8.87a.79.79 0 0 1-.09-.56c.04-.19.14-.34.27-.4.14-.07.29-.1.45-.1.35 0 .67.18.87.34l3.5 2.75c.04.03.1.03.13 0a.09.09 0 0 0 .02-.13l-.02-.02c-.57-.8-3.42-4.77-3.71-5.15-.21-.27-.3-.58-.24-.84.05-.2.2-.37.4-.48.18-.09.35-.13.52-.13.44 0 .76.28.96.51l3.6 4.42c.04.04.07.06.14.02.05-.02.06-.07.03-.12L4.41 2.96a.94.94 0 0 1-.1-.73.92.92 0 0 1 .47-.57 1.06 1.06 0 0 1 1.4.39l3.8 6.14c.03.04.07.07.14.04.04-.03.06-.07.04-.13A153.8 153.8 0 0 0 8.1 2.54c-.31-.68-.2-1.14.36-1.42.52-.27 1.14-.07 1.47.48l3.69 8.3c.02.04.05.05.1.06a.1.1 0 0 0 .09-.07l.66-2.28c.1-.3.31-.56.62-.72.3-.15.65-.18.98-.1.7.2 1.09.87.89 1.52-.1.37-.46 1.73-.99 3.43l-.1.33c-.58 1.86-1.03 3.33-3.11 4.4-.7.35-1.38.53-2.05.53Z" fill="#FFC166"/><path d="M14 .37a.5.5 0 0 0-.88.45l1.96 3.9a.5.5 0 0 0 .9-.45L14 .37Zm-1.17 2.17a.5.5 0 0 0-.91.42l.84 1.87a.5.5 0 1 0 .91-.41l-.84-1.88Zm-10.6 9.74a.5.5 0 0 1 .7-.02l1.7 1.6a.5.5 0 0 1-.7.72l-1.68-1.6a.5.5 0 0 1-.02-.7Zm-1.39.98a.5.5 0 1 0-.68.73l3.03 2.84a.5.5 0 0 0 .68-.73L.84 13.26Z" opacity=".4"/></svg></h2>
+                                <p class="fs-caption">
+                                    Your two parts were merged to make the &#x201C;body&#x201D; of the question. Please review and edit to make sure that the question in its entirety makes sense.
+                                </p>
+                                <p class="fs-caption">
+                                    When creating questions in the future, there will be only one body field, but for best results remember to include both a description of your problem and what you&#x2019;ve tried.
+                                </p>
+                                <button class="js-next-body s-btn s-btn__outlined" type="button">Got it</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+    <script>
+        StackExchange.ifUsing("editor", function () {
+            StackExchange.using("externalEditor", function () {
+                StackExchange.using("snippets", function () {
+                    StackExchange.snippets.init();
+                });
+            });
+        }, "code-snippets");
+    </script>
+
+
+<script>
+    StackExchange.ready(function() {
+            StackExchange.using("tagEditor", function () { StackExchange.tagEditor.ready.done(initFadingHelpText); });
+        var channelOptions = {
+            tags: "".split(" "),
+            id: "1"
+        };
+        initTagRenderer("".split(" "), "".split(" "), channelOptions);
+
+        StackExchange.using("externalEditor", function() {
+            // Have to fire editor after snippets, if snippets enabled
+            if (StackExchange.settings.snippets.snippetsEnabled) {
+                StackExchange.using("snippets", function() {
+                    createEditor();
+                });
+            }
+            else {
+                createEditor();
+            }
+        });
+
+        function createEditor() {
+            StackExchange.prepareEditor({
+                useStacksEditor: true,
+                heartbeatType: 'stagingground',
+                autoActivateHeartbeat: false,
+                convertImagesToLinks: true,
+                noModals: true,
+                showLowRepImageUploadWarning: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                imageUploader: {
+                    brandingHtml: "Powered by \u003ca href=\"https://imgur.com/\"\u003e\u003csvg class=\"svg-icon\" width=\"50\" height=\"18\" viewBox=\"0 0 50 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\u003cpath d=\"M46.1709 9.17788C46.1709 8.26454 46.2665 7.94324 47.1084 7.58816C47.4091 7.46349 47.7169 7.36433 48.0099 7.26993C48.9099 6.97997 49.672 6.73443 49.672 5.93063C49.672 5.22043 48.9832 4.61182 48.1414 4.61182C47.4335 4.61182 46.7256 4.91628 46.0943 5.50789C45.7307 4.9328 45.2525 4.66231 44.6595 4.66231C43.6264 4.66231 43.1481 5.28821 43.1481 6.59048V11.9512C43.1481 13.2535 43.6264 13.8962 44.6595 13.8962C45.6924 13.8962 46.1709 13.2535 46.1709 11.9512V9.17788Z\"/\u003e\u003cpath d=\"M32.492 10.1419C32.492 12.6954 34.1182 14.0484 37.0451 14.0484C39.9723 14.0484 41.5985 12.6954 41.5985 10.1419V6.59049C41.5985 5.28821 41.1394 4.66232 40.1061 4.66232C39.0732 4.66232 38.5948 5.28821 38.5948 6.59049V9.60062C38.5948 10.8521 38.2696 11.5455 37.0451 11.5455C35.8209 11.5455 35.4954 10.8521 35.4954 9.60062V6.59049C35.4954 5.28821 35.0173 4.66232 34.0034 4.66232C32.9703 4.66232 32.492 5.28821 32.492 6.59049V10.1419Z\" /\u003e\u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M25.6622 17.6335C27.8049 17.6335 29.3739 16.9402 30.2537 15.6379C30.8468 14.7755 30.9615 13.5579 30.9615 11.9512V6.59049C30.9615 5.28821 30.4833 4.66231 29.4502 4.66231C28.9913 4.66231 28.4555 4.94978 28.1109 5.50789C27.499 4.86533 26.7335 4.56087 25.7005 4.56087C23.1369 4.56087 21.0134 6.57349 21.0134 9.27932C21.0134 11.9852 23.003 13.913 25.3754 13.913C26.5612 13.913 27.4607 13.4902 28.1109 12.6616C28.1109 12.7229 28.1161 12.7799 28.121 12.8346C28.1256 12.8854 28.1301 12.9342 28.1301 12.983C28.1301 14.4373 27.2502 15.2321 25.777 15.2321C24.8349 15.2321 24.1352 14.9821 23.5661 14.7787C23.176 14.6393 22.8472 14.5218 22.5437 14.5218C21.7977 14.5218 21.2429 15.0123 21.2429 15.6887C21.2429 16.7375 22.9072 17.6335 25.6622 17.6335ZM24.1317 9.27932C24.1317 7.94324 24.9928 7.09766 26.1024 7.09766C27.2119 7.09766 28.0918 7.94324 28.0918 9.27932C28.0918 10.6321 27.2311 11.5116 26.1024 11.5116C24.9737 11.5116 24.1317 10.6491 24.1317 9.27932Z\"/\u003e\u003cpath d=\"M16.8045 11.9512C16.8045 13.2535 17.2637 13.8962 18.2965 13.8962C19.3298 13.8962 19.8079 13.2535 19.8079 11.9512V8.12928C19.8079 5.82936 18.4879 4.62866 16.4027 4.62866C15.1594 4.62866 14.279 4.98375 13.3609 5.88013C12.653 5.05154 11.6581 4.62866 10.3573 4.62866C9.34336 4.62866 8.57809 4.89931 7.9466 5.5079C7.58314 4.9328 7.10506 4.66232 6.51203 4.66232C5.47873 4.66232 5.00066 5.28821 5.00066 6.59049V11.9512C5.00066 13.2535 5.47873 13.8962 6.51203 13.8962C7.54479 13.8962 8.0232 13.2535 8.0232 11.9512V8.90741C8.0232 7.58817 8.44431 6.91179 9.53458 6.91179C10.5104 6.91179 10.893 7.58817 10.893 8.94108V11.9512C10.893 13.2535 11.3711 13.8962 12.4044 13.8962C13.4375 13.8962 13.9157 13.2535 13.9157 11.9512V8.90741C13.9157 7.58817 14.3365 6.91179 15.4269 6.91179C16.4027 6.91179 16.8045 7.58817 16.8045 8.94108V11.9512Z\"/\u003e\u003cpath d=\"M3.31675 6.59049C3.31675 5.28821 2.83866 4.66232 1.82471 4.66232C0.791758 4.66232 0.313354 5.28821 0.313354 6.59049V11.9512C0.313354 13.2535 0.791758 13.8962 1.82471 13.8962C2.85798 13.8962 3.31675 13.2535 3.31675 11.9512V6.59049Z\" /\u003e\u003cpath d=\"M1.87209 0.400291C0.843612 0.400291 0 1.1159 0 1.98861C0 2.87869 0.822846 3.57676 1.87209 3.57676C2.90056 3.57676 3.7234 2.87869 3.7234 1.98861C3.7234 1.1159 2.90056 0.400291 1.87209 0.400291Z\" fill=\"#1BB76E\"/\u003e\u003c/svg\u003e\u003c/a\u003e",
+                    contentPolicyHtml: "User contributions licensed under \u003ca href=\"https://stackoverflow.com/help/licensing\"\u003ecc by-sa\u003c/a\u003e \u003ca href=\"https://stackoverflow.com/legal/content-policy\"\u003e(content policy)\u003c/a\u003e",
+                    allowUrls: true
+                },
+                onDemand: false,
+                discardSelector: ".discard-question"
+                ,immediatelyShowMarkdownHelp:true,userId:18439792,enableTables:true,enableSnippets:true,defaultView:1
+            });
+                    }
+    });
+</script>
+<div id="post-editor" class="post-editor js-post-editor">
+
+
+        <div class="js-stacks-validation">
+            <textarea id="js-stacks-editor-content"
+                name="post-text"
+                class="d-none js-stacks-editor-backing-textarea js-post-body-field"
+                data-post-type-id="1"
+                data-min-length=""
+            ></textarea>
+
+            <div id="js-stacks-editor-container" class="js-stacks-editor-container mb8">
+                <div class="js-fake-stacks-editor s-textarea s-input__readonly overflow-auto hmn2 w100 p0 pe-none">
+    <div class="py6 bg-inherit btr-sm w100">
+        <div class="d-flex overflow-x-auto ai-center px12 py4 pb0">
+            <div class="d-flex gs2 mln4 fl1 ai-center">
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconHeader"></span>
+                </button>
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconBold"></span>
+                </button>
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconItalic"></span>
+                </button>
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconCode"></span>
+                </button>
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconStrikethrough"></span>
+                </button>
+                <div class="flex--item w16"></div>
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconLink"></span>
+                </button>
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconQuote"></span>
+                </button>
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconCodeblock"></span>
+                </button>
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconImage"></span>
+                </button>
+                <div class="flex--item w16"></div>
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconOrderedList"></span>
+                </button>
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconUnorderedList"></span>
+                </button>
+                <button class="s-editor-btn flex--item is-disabled">
+                    <span class="icon-bg iconHorizontalRule"></span>
+                </button>
+                <div class="flex--item w16 sm:d-inline-block d-none"></div>
+                <button class="s-editor-btn flex--item sm:d-inline-block d-none">
+                    <span class="icon-bg iconUndo"></span>
+                </button>
+                <button class="s-editor-btn flex--item sm:d-inline-block d-none">
+                    <span class="icon-bg iconRefresh"></span>
+                </button>
+                <div class="flex--item w16"></div>
+                <a class="s-editor-btn flex--item is-disabled" href="#" target="_blank">
+                    <span class="icon-bg iconHelp"></span>
+                </a>
+            </div>
+            <div class="flex--item d-flex ai-center ml16 fc-medium">
+                <label class="flex--item fs-caption mr4 sm:d-none">Markdown</label>
+                <label class="flex--item mr4 d-none sm:d-block">
+                    <span class="icon-bg iconMarkdown"></span>
+                </label>
+                <div class="flex--item s-editor-toggle">
+                    <input type="checkbox">
+                    <label></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p12 pt6 w100 s-prose ProseMirror"></div>
+</div>
+            </div>
+            <div class="s-input-message mt4 d-none js-stacks-validation-message"></div>
+        </div>
+
+    <aside class="d-flex ai-start jc-space-between js-answer-help s-notice s-notice__warning pb0 pr4 pt4 mb8 d-none" role="status" aria-hidden="true">
+    <div class="flex--item pt8">
+        <p>Thanks for contributing an answer to Stack Overflow!</p><ul><li>Please be sure to <em>answer the question</em>. Provide details and share your research!</li></ul><p>But <em>avoid</em> …</p><ul><li>Asking for help, clarification, or responding to other answers.</li><li>Making statements based on opinion; back them up with references or personal experience.</li></ul><p>To learn more, see our <a href="/help/how-to-answer">tips on writing great answers</a>.</p>
+    </div>
+    <button class="flex--item js-answer-help-close-btn s-btn s-btn__muted fc-dark">
+        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41 13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9 15 4.41Z"/></svg>
+    </button>
+</aside>
+
+        <aside class="d-flex ai-start jc-space-between js-answer-ban s-notice s-notice__danger pb0 pr4 pt4 mb8 d-none" role="status" aria-hidden="true">
+    <div class="flex--item pt8">
+        <p>Some of your past answers have not been well-received, and you're in danger of being <a href="/help/answer-bans">blocked from answering</a>.</p><p>Please pay close attention to the following guidance:</p><ul><li>Please be sure to <em>answer the question</em>. Provide details and share your research!</li></ul><p>But <em>avoid</em> …</p><ul><li>Asking for help, clarification, or responding to other answers.</li><li>Making statements based on opinion; back them up with references or personal experience.</li></ul><p>To learn more, see our <a href="/help/how-to-answer">tips on writing great answers</a>.</p>
+    </div>
+    <button class="flex--item js-answer-ban-close-btn s-btn s-btn__muted fc-dark">
+        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41 13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9 15 4.41Z"/></svg>
+    </button>
+</aside>
+
+
+
+    <div>
+        <div id="draft-saved" class="fc-success h24" style="display:none;">Draft saved</div>
+        <div id="draft-discarded" class="fc-error h24" style="display:none;">Draft discarded</div>
+    </div>
+
+
+
+        <div class="edit-block">
+            <input id="fkey" name="fkey" type="hidden" value="25de4885af9d7958e1ea0588b193371099e4940fc20362a0cdd0d742dac9d610">
+            <input id="author" name="author" type="text">
+        </div>
+
+</div>
+
+                </div>
+
+                <div class="flex--item js-body-sidebar js-sidebar-toggler s-card p0 bs-sm g:mb8 d-none">
+                    <div class="fs-body2 bb bc-black-100 bg-black-025 p12">
+                        Proof-read before posting
+                    </div>
+                    <div class="bg-white d-flex gsx gs16 m16">
+                        <div class="flex-item">
+                            <svg aria-hidden="true" class="native svg-spot spotPencil" width="48" height="48" viewBox="0 0 48 48"><path opacity=".2" d="M31.52 5.2a.34.34 0 0 0-.46.08L7 39.94a.34.34 0 0 0-.06.16l-.54 5.21c-.03.26.24.45.48.34l4.77-2.29c.05-.02.1-.06.13-.1L35.83 8.58a.34.34 0 0 0-.09-.47l-4.22-2.93Z"/><path d="M28.53 2.82c.4-.58 1.2-.73 1.79-.32l4.22 2.92c.58.4.72 1.2.32 1.79L10.82 41.87c-.13.18-.3.33-.5.43l-4.77 2.28c-.9.44-1.93-.29-1.83-1.29l.55-5.2c.02-.22.1-.43.22-.6L28.53 2.81Zm4.43 3.81L29.74 4.4 28.2 6.6l3.22 2.24 1.53-2.21Zm-2.6 3.76-3.23-2.24-20.32 29.3 3.22 2.24 20.32-29.3ZM5.7 42.4 8.62 41l-2.57-1.78-.34 3.18Zm35.12.3a1 1 0 1 0-.9-1.78 35 35 0 0 1-7.94 3.06c-1.93.43-3.8.3-5.71-.04-.97-.17-1.93-.4-2.92-.64l-.3-.07c-.9-.21-1.81-.43-2.74-.62-2.9-.58-6.6-.49-9.43.65a1 1 0 0 0 .74 1.86c2.4-.96 5.68-1.07 8.3-.55.88.18 1.77.4 2.66.6l.3.08c1 .24 2 .48 3.03.66 2.07.37 4.22.53 6.5.02 3-.67 5.77-1.9 8.41-3.22Z"/></svg>
+                        </div>
+                        <div class="flex--item fs-caption">
+                            <p>Now that you&#x2019;re ready to post your question, read through it from start to finish. Does it make sense?</p>
+                            <p>Add any details you missed and read through it again. Now is a good time to make sure that your title still describes the problem!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt12 d-flex lg:fd-column-reverse w100 ai-start gs16">
+                <div class="flex--item w70 lg:w100 ps-relative bg-white bar-sm ba bc-black-075 fl-shrink0" id="tag-editor">
+
+                    <div class="js-tags-overlay js-overlay-enabled o30 t0 b0 bg-black-075 py24 px8 c-not-allowed">
+
+<script>
+StackExchange.using("tagEditor", function () {
+    var channelOptions = {
+        tags: "".split(" "),
+        id: "1"
+    };
+    initTagRenderer("".split(" "), "".split(" "), channelOptions);
+    StackExchange.tagEditor($("#tagnames"), {
+        responsiveIsh: true,
+        useStacksClasses: true,
+        columns: 3
+    });
+    StackExchange.tagEditor.ready.then(function () {
+        StackExchange.using("beginEditEvent", function () {
+            StackExchange.beginEditEvent.init();
+        });
+    });
+});
+</script>
+
+<div class="ps-relative">
+    <div class="form-item p0 js-stacks-validation js-tag-editor-container mx16">
+        <div class="d-flex ai-center jc-space-between">
+            <label for="tagnames" class="s-label mb4 d-block flex--item fl1 c-not-allowed">
+                Tags
+                    <div class="s-description mt2">Add up to 5 tags to describe what your question is about. Start typing to see suggestions.</div>
+            </label>
+        </div>
+        <div class="d-flex fd-column g4 ps-relative">
+            <div class="ps-relative">
+                <input id="tagnames" class="s-input box-border js-post-tags-field" name="tagnames" type="text" size="60" value="" tabindex="103" placeholder="e.g. (c css reactjs)">
+            </div>
+        </div>
+        <div class="s-input-message d-none js-stacks-validation-message"></div>
+    </div>
+</div>
+
+                            <div class="js-tag-suggestions"></div>
+
+                        <button class="s-btn s-btn__primary ml16 mt16 js-next-tags js-next-buttons d-none" type="button">Next</button>
+                    </div>
+                </div>
+
+                <div class="flex--item js-tag-sidebar js-sidebar-toggler s-card p0 bs-sm g:mb8 d-none w100">
+                    <div class="fs-body2 bb bc-black-100 bg-black-025 p12">
+                        Adding tags
+                    </div>
+                    <div class="bg-white d-flex gsx gs16 m16">
+                        <div class="flex-item">
+                            <svg aria-hidden="true" class="native svg-spot spotPencil" width="48" height="48" viewBox="0 0 48 48"><path opacity=".2" d="M31.52 5.2a.34.34 0 0 0-.46.08L7 39.94a.34.34 0 0 0-.06.16l-.54 5.21c-.03.26.24.45.48.34l4.77-2.29c.05-.02.1-.06.13-.1L35.83 8.58a.34.34 0 0 0-.09-.47l-4.22-2.93Z"/><path d="M28.53 2.82c.4-.58 1.2-.73 1.79-.32l4.22 2.92c.58.4.72 1.2.32 1.79L10.82 41.87c-.13.18-.3.33-.5.43l-4.77 2.28c-.9.44-1.93-.29-1.83-1.29l.55-5.2c.02-.22.1-.43.22-.6L28.53 2.81Zm4.43 3.81L29.74 4.4 28.2 6.6l3.22 2.24 1.53-2.21Zm-2.6 3.76-3.23-2.24-20.32 29.3 3.22 2.24 20.32-29.3ZM5.7 42.4 8.62 41l-2.57-1.78-.34 3.18Zm35.12.3a1 1 0 1 0-.9-1.78 35 35 0 0 1-7.94 3.06c-1.93.43-3.8.3-5.71-.04-.97-.17-1.93-.4-2.92-.64l-.3-.07c-.9-.21-1.81-.43-2.74-.62-2.9-.58-6.6-.49-9.43.65a1 1 0 0 0 .74 1.86c2.4-.96 5.68-1.07 8.3-.55.88.18 1.77.4 2.66.6l.3.08c1 .24 2 .48 3.03.66 2.07.37 4.22.53 6.5.02 3-.67 5.77-1.9 8.41-3.22Z"/></svg>
+                        </div>
+                        <div class="flex--item fs-caption">
+                            <p>Tags help ensure that your question will get attention from the right people.</p>
+                            <p>Tag things in more than one way so people can find them more easily. Add tags for product lines, projects, teams, and the specific technologies or languages used.</p>
+                            <p><a href="https://stackoverflow.com/help/tagging">Learn more about tagging</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-similar-questions-container d-flex w100 lg:fd-column-reverse ai-start gs16 d-none mt12">
+                <div class="flex--item w70 lg:w100 bg-white bar-sm p24 ba bc-black-075 fl-shrink0" id="post-title">
+                    <div class="js-similar-questions">
+                            <div class="ba js-similar-questions-outer-div bc-black-200 mb24 d-flex fd-column d-none bar-sm mt12 mbn1 bg-white">
+    <button class="js-similar-questions-title bg-black-025 bc-black-100 bb flex--item1 btr-sm s-btn s-btn__unset d-flex px16 py12 w100 c-pointer bblr0 bbrr0"
+            type="button"
+            data-right-rail-target="step"
+            data-controller="s-expandable-control"
+            aria-expanded="true"
+            aria-controls="js-similar-questions-expandable-_cc99b797-ece3-4046-bbdc-6bbbe2790fb0-523EEAD95004A69ABC7813C9C8E3BBB4">
+        <div class="flex--item fl1 ai-center fs-body2 fc-light ta-left">
+            Do any of these posts answer your question?
+        </div>
+        <div>
+            <div class="js-arrow-down d-none"><svg aria-hidden="true" class="fc-light svg-icon iconArrowDownAlt" width="18" height="18" viewBox="0 0 18 18"><path d="m16.01 7.43-1.4-1.41L9 11.6 3.42 6l-1.4 1.42 7 7 7-7Z"/></svg></div>
+            <div class="js-arrow-up "><svg aria-hidden="true" class="fc-light svg-icon iconArrowUpAlt" width="18" height="18" viewBox="0 0 18 18"><path d="m16.01 10.62-1.4 1.4L9 6.45l-5.59 5.59-1.4-1.41 7-7 7 7Z"/></svg></div>
+        </div>
+    </button>
+    <div class="s-expandable is-expanded d-block" id="js-similar-questions-expandable-_cc99b797-ece3-4046-bbdc-6bbbe2790fb0-523EEAD95004A69ABC7813C9C8E3BBB4">
+        <div class="js-similar-questions similar-questions bbw0 s-expandable--content">
+            <img class="ajax-loader js-similar-questions-loader" src="https://cdn.sstatic.net/Img/progress-dots.gif?v=679ddd617b7d" title='Loading&#x2026;' alt='Loading&#x2026;' />
+        </div>
+    </div>
+</div>
+
+<script>
+    StackExchange.ready(function () {
+        $('.js-_cc99b797-ece3-4046-bbdc-6bbbe2790fb0-523EEAD95004A69ABC7813C9C8E3BBB4').find('.js-similar-questions-title')
+            .on('s-expandable-control:show s-expandable-control:hide', function () {
+                $(this).find(".js-arrow-down").toggleClass("d-none");
+                $(this).find(".js-arrow-up").toggleClass("d-none");
+            })
+            .on('s-expandable-control:show', function () {
+                StackExchange.using("gps", function () { StackExchange.gps.track("similarquestions.results_collapse_toggle", { is_collapsed: false }); });
+                $(this).removeClass('bbw0').addClass('bbrr0 bblr0');
+            })
+            .on('s-expandable-control:hide', function() {
+                StackExchange.using("gps", function () { StackExchange.gps.track("similarquestions.results_collapse_toggle", { is_collapsed: true }); });
+                $(this).addClass('bbw0').removeClass('bbrr0 bblr0');
+            });
+    });
+</script>
+
+                    </div>
+                    <fieldset class="d-flex gs8 gsy fd-column js-verify-not-duplicate-section mt12">
+                        <legend class="flex--item s-label">Please confirm that none of the posts above answer your question.</legend>
+                        <p class="flex--item s-description my0">Viewing the above questions won&#x2019;t erase your progress. You can always come back here to continue.</p>
+                        <div class="flex--item">
+                            <div class="d-flex gs4 gsx">
+                                <div class="flex--item">
+                                    <input class="s-checkbox js-verify-not-duplicate mtn2" type="checkbox" name="verify-not-duplicate" id="verify-not-duplicate" />
+                                </div>
+                                <label class="flex--item s-label fw-normal fs-body1" for="verify-not-duplicate">None of these answer my question</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="flex--item js-similar-questions-sidebar js-sidebar-toggler s-card p0 bs-sm g:mb8 w100 d-none">
+                    <div class="fs-body2 bb bc-black-100 bg-black-025 p12">
+                        Make sure we don&#x2019;t already have an answer for your question
+                    </div>
+                    <div class="bg-white d-flex gsx gs16 m16">
+                        <div class="flex--item">
+                            <svg aria-hidden="true" class="native svg-spot spotBell" width="48" height="48" viewBox="0 0 48 48"><path d="M11.81.8a1.37 1.37 0 1 0-2.5 1.16l1.91 4.09a1.38 1.38 0 0 0 2.5-1.16l-1.9-4.1Zm-8.7 3.98a1.38 1.38 0 0 1 1.94-.18l3.97 3.28A1.38 1.38 0 0 1 7.26 10L3.3 6.72a1.37 1.37 0 0 1-.19-1.94Zm34.91 23.57a21.3 21.3 0 0 0-.23-12.08 19.77 19.77 0 0 0-3-5.95 3.49 3.49 0 0 0-1.9-4.19 3.49 3.49 0 0 0-4.43 1.25c-2.2.13-4.4.71-6.44 1.58a21.65 21.65 0 0 0-9.3 7.6c-.82 1.18-1.6 2.39-2.4 3.6l-.38.6c-2.34 3.6-3.55 5.07-4.87 5.64-1.08.47-2.3 1.1-2.82 2.22A3 3 0 0 0 3.7 32.6l27.82 12.98c1.96.91 4.33-.6 4.27-2.8a8.47 8.47 0 0 0-.39-2.24c-.41-1.36-.07-3.24 1.2-7.35.49-1.6 1-3.21 1.42-4.84ZM.27 14.11c.02-.76.66-1.35 1.42-1.33l4.75.16a1.38 1.38 0 0 1-.1 2.75l-4.74-.16a1.38 1.38 0 0 1-1.33-1.42Zm45.99 15.63a1.37 1.37 0 0 0 .73-2.65l-4.96-1.37a1.37 1.37 0 0 0-.74 2.65l4.97 1.37Zm-2.74 6.53c-.5.57-1.37.64-1.94.14l-3.42-2.96a1.38 1.38 0 0 1 1.8-2.08l3.42 2.96c.57.5.64 1.36.14 1.94Zm3.22-15.37a1.38 1.38 0 0 0-1.05-2.54l-4.4 1.8a1.38 1.38 0 0 0 1.05 2.55l4.4-1.8Z" opacity=".2"/><path d="M13.73 22.3a1 1 0 1 1-1.78-.92c3.61-7.07 8.02-10.8 13.34-11.26a1 1 0 0 1 .17 2c-4.53.39-8.4 3.66-11.73 10.17Zm22.33 3.55c1.13-4.3.95-8.36-.23-12.08a19.78 19.78 0 0 0-3.01-5.95 3.49 3.49 0 0 0-1.9-4.18 3.49 3.49 0 0 0-4.42 1.24c-2.21.13-4.4.71-6.44 1.58a21.65 21.65 0 0 0-9.3 7.6c-.83 1.18-1.61 2.39-2.4 3.6l-.38.6c-2.34 3.6-3.55 5.07-4.87 5.64a9.4 9.4 0 0 0-1.9 1.08 3 3 0 0 0 .52 5.12l27.83 12.98a3 3 0 0 0 4.26-2.8 8.47 8.47 0 0 0-.38-2.24c-.41-1.36-.07-3.24 1.19-7.34l.21-.7c.43-1.38.85-2.75 1.22-4.15Zm-4.23 14.48a1 1 0 0 1-1.43.94L2.58 28.29a1 1 0 0 1-.18-1.7c.43-.32.93-.6 1.5-.86 1.84-.8 3.17-2.4 5.76-6.39l.39-.6c.77-1.19 1.53-2.38 2.35-3.53a19.65 19.65 0 0 1 8.44-6.91 15.72 15.72 0 0 1 6.23-1.44 1 1 0 0 0 .92-.57c.42-.9 1.3-1.21 2.09-.84.8.37 1.11 1.24.7 2.13a1 1 0 0 0 .15 1.09 15.96 15.96 0 0 1 3 5.7 19.36 19.36 0 0 1 .2 10.97c-.37 1.36-.78 2.71-1.2 4.06l-.21.7c-1.4 4.55-1.77 6.61-1.2 8.52.2.61.3 1.18.3 1.71Zm-14.78-.72a1 1 0 1 1 1.78.9 2.44 2.44 0 1 0 4.44 2.03 1 1 0 0 1 1.85.77 4.44 4.44 0 1 1-8.07-3.7Z"/></svg>
+                        </div>
+                        <div class="flex--item fs-caption">
+                            <p>Stack Overflow is a huge database of knowledge.</p>
+                            <p>Please make sure your question isn&#x2019;t already answered before posting, or your question might be closed as a duplicate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-show-on-question-only" id="question-only-section">
+
+                    <div class="js-inbox-notification-checkbox d-none my12">
+
+
+                    </div>
+
+                <div class="form-submit cbt d-flex gsx gs4 p0 mt12">
+                    <button id="submit-button" class="flex--item s-btn s-btn__primary s-btn__icon js-submit-button d-none" type="submit" autocomplete="off" disabled>
+                        Post Your Question
+                    </button>
+                    <button class="flex--item s-btn s-btn__primary s-btn__icon js-review-question-button" type="button" autocomplete="off" disabled>
+                        Review your question
+                    </button>
+
+                    <div data-controller="s-modal">
+                        <button class="flex--item s-btn s-btn__danger js-discard-question d-none" data-action="s-modal#show" type="button">Discard draft</button>
+                        <aside class="s-modal s-modal__danger js-discard-draft-modal" id="discard-modal-base" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description" aria-hidden="true" data-s-modal-target="modal">
+                            <div class="s-modal--dialog" role="document">
+                                <h1 class="s-modal--header" id="modal-title">Discard question</h1>
+                                <p class="s-modal--body" id="modal-description">Are you sure you want to discard this question? This cannot be undone.</p>
+                                <div class="d-flex gs8 gsx s-modal--footer">
+                                    <button class="flex--item s-btn s-btn__filled s-btn__danger" id="discard-confirmation-btn" type="button">Discard question</button>
+                                    <button class="flex--item s-btn s-btn__muted" type="button" id="discard-cancel-btn" data-action="s-modal#hide">Cancel</button>
+                                </div>
+                                <button class="s-modal--close s-btn s-btn__muted" type="button" aria-label="Close"
+                                    data-action="s-modal#hide">
+                                    <svg aria-hidden="true" class="svg-icon iconClearSm" width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41 10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41Z"/></svg>
+                                </button>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+                <div class="js-general-error general-error cbt d-none mt16"></div>
+            </div>
+        </main>
+    </form>
+</div>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

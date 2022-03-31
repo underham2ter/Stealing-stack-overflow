@@ -1,0 +1,981 @@
+
+{% extends 'main/base.html' %}
+
+{% block title%}
+Questions
+{% endblock %}
+
+{% block content%}
+    <div class="container">
+
+
+<div id="left-sidebar" data-is-here-when="md lg" class="left-sidebar js-pinned-left-sidebar ps-relative">
+    <div class="left-sidebar--sticky-container js-sticky-leftnav">
+        <nav role="navigation">
+            <ol class="nav-links">
+
+
+<li class="ps-relative" >
+
+    <a
+       href="/"
+       class="pl8 js-gps-track nav-links--link"
+
+       data-gps-track="top_nav.click({is_current:false, location:3, destination:8})"
+       aria-controls="" data-controller="" data-s-popover-placement="right"
+       data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+            <div class="d-flex ai-center">
+                <div class="flex--item truncate">
+                    Home
+                </div>
+            </div>
+    </a>
+</li>
+
+                <li>
+                    <ol class="nav-links">
+                            <li class="fs-fine tt-uppercase ml8 mt16 mb4 fc-light">Public</li>
+
+
+
+<li class="ps-relative  youarehere" >
+
+    <a id="nav-questions"
+       href="/questions"
+       class="pl8 js-gps-track nav-links--link -link__with-icon"
+
+       data-gps-track="top_nav.click({is_current:true, location:3, destination:1})"
+       aria-controls="" data-controller="" data-s-popover-placement="right"
+       data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+<svg aria-hidden="true" class="svg-icon iconGlobe" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1C4.64 1 1 4.64 1 9c0 4.36 3.64 8 8 8 4.36 0 8-3.64 8-8 0-4.36-3.64-8-8-8ZM8 15.32a6.46 6.46 0 0 1-4.3-2.74 6.46 6.46 0 0 1-.93-5.01L7 11.68v.8c0 .88.12 1.32 1 1.32v1.52Zm5.72-2c-.2-.66-1-1.32-1.72-1.32h-1v-2c0-.44-.56-1-1-1H6V7h1c.44 0 1-.56 1-1V5h2c.88 0 1.4-.72 1.4-1.6v-.33a6.45 6.45 0 0 1 3.83 4.51 6.45 6.45 0 0 1-1.51 5.73v.01Z"/></svg>            <span class="-link--channel-name">Questions</span>
+    </a>
+</li>
+
+
+
+
+
+<li class="ps-relative" >
+
+    <a id="nav-tags"
+       href="/tags"
+       class=" js-gps-track nav-links--link"
+
+       data-gps-track="top_nav.click({is_current:false, location:3, destination:2})"
+       aria-controls="" data-controller="" data-s-popover-placement="right"
+       data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+            <div class="d-flex ai-center">
+                <div class="flex--item truncate">
+                    Tags
+                </div>
+            </div>
+    </a>
+</li>
+
+
+
+<li class="ps-relative" >
+
+    <a id="nav-users"
+       href="/users"
+       class=" js-gps-track nav-links--link"
+
+       data-gps-track="top_nav.click({is_current:false, location:3, destination:3})"
+       aria-controls="" data-controller="" data-s-popover-placement="right"
+       data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+            <div class="d-flex ai-center">
+                <div class="flex--item truncate">
+                    Users
+                </div>
+            </div>
+    </a>
+</li>
+
+                            <li class="d-flex ml8 mt16 mb4 jc-space-between">
+                                <div class="flex--item tt-uppercase tt-uppercase fs-fine fc-light">Collectives</div>
+                                <div class="flex--item fs-fine fc-light">
+                                    <a href="javascript:void(0)" class="s-link s-link__inherit mr8 js-gps-track"
+                                   role="button"
+                                   aria-controls="popover-discover-collectives"
+                                   data-controller="s-popover"
+                                   data-action="s-popover#toggle"
+                                   data-s-popover-placement="top"
+                                   data-s-popover-toggle-class="is-selected"
+                                   data-gps-track="top_nav.click({is_current:false, location:3, destination:17})">
+                                        <svg aria-hidden="true" class="svg-icon iconInfoSm" width="14" height="14" viewBox="0 0 14 14"><path d="M7 1a6 6 0 1 1 0 12A6 6 0 0 1 7 1Zm1 10V6H6v5h2Zm0-6V3H6v2h2Z"/></svg>
+                                    </a>
+                                </div>
+                            </li>
+
+
+<li class="ps-relative" >
+
+    <a id="nav-collective-discover"
+       href="/collectives"
+       class="pl8 ai-center js-gps-track nav-links--link -link__with-icon"
+
+       data-gps-track="top_nav.click({is_current:false, location:3, destination:18})"
+       aria-controls="" data-controller="" data-s-popover-placement="right"
+       data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+<svg aria-hidden="true" class="mt-auto fc-orange-400 svg-icon iconStarVerified" width="18" height="18" viewBox="0 0 18 18"><path d="M9.86.89a1.14 1.14 0 0 0-1.72 0l-.5.58c-.3.35-.79.48-1.23.33l-.72-.25a1.14 1.14 0 0 0-1.49.85l-.14.76c-.1.45-.45.8-.9.9l-.76.14c-.67.14-1.08.83-.85 1.49l.25.72c.15.44.02.92-.33 1.23l-.58.5a1.14 1.14 0 0 0 0 1.72l.58.5c.35.3.48.79.33 1.23l-.25.72c-.23.66.18 1.35.85 1.49l.76.14c.45.1.8.45.9.9l.14.76c.14.67.83 1.08 1.49.85l.72-.25c.44-.15.92-.02 1.23.33l.5.58c.46.52 1.26.52 1.72 0l.5-.58c.3-.35.79-.48 1.23-.33l.72.25c.66.23 1.35-.18 1.49-.85l.14-.76c.1-.45.45-.8.9-.9l.76-.14c.67-.14 1.08-.83.85-1.49l-.25-.72c-.15-.44-.02-.92.33-1.23l.58-.5c.52-.46.52-1.26 0-1.72l-.58-.5c-.35-.3-.48-.79-.33-1.23l.25-.72a1.14 1.14 0 0 0-.85-1.49l-.76-.14c-.45-.1-.8-.45-.9-.9l-.14-.76a1.14 1.14 0 0 0-1.49-.85l-.72.25c-.44.15-.92.02-1.23-.33l-.5-.58Zm-.49 2.67L10.6 6.6c.05.15.19.24.34.25l3.26.22c.36.03.5.48.23.71l-2.5 2.1a.4.4 0 0 0-.14.4l.8 3.16a.4.4 0 0 1-.6.44L9.2 12.13a.4.4 0 0 0-.42 0l-2.77 1.74a.4.4 0 0 1-.6-.44l.8-3.16a.4.4 0 0 0-.13-.4l-2.5-2.1a.4.4 0 0 1 .22-.7l3.26-.23a.4.4 0 0 0 .34-.25l1.22-3.03a.4.4 0 0 1 .74 0Z"/></svg>            <span class="-link--channel-name">Explore Collectives</span>
+    </a>
+</li>
+
+                            <li class="fs-fine tt-uppercase ml8 mt16 mb4 fc-light">Find a Job</li>
+
+
+<li class="ps-relative" >
+
+    <a id="nav-jobs"
+       href="/jobs?so_medium=StackOverflow&amp;so_source=SiteNav"
+       class=" js-gps-track nav-links--link"
+
+       data-gps-track="top_nav.click({is_current:false, location:3, destination:6})"
+       aria-controls="" data-controller="" data-s-popover-placement="right"
+       data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+            <div class="d-flex ai-center">
+                <div class="flex--item truncate">
+                    Jobs
+                </div>
+            </div>
+    </a>
+</li>
+
+
+
+<li class="ps-relative" >
+
+    <a id="nav-companies"
+       href="/jobs/companies?so_medium=StackOverflow&amp;so_source=SiteNav"
+       class=" js-gps-track nav-links--link"
+
+       data-gps-track="top_nav.click({is_current:false, location:3, destination:12})"
+       aria-controls="" data-controller="" data-s-popover-placement="right"
+       data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+            <div class="d-flex ai-center">
+                <div class="flex--item truncate">
+                    Companies
+                </div>
+            </div>
+    </a>
+</li>
+
+                    </ol>
+                </li>
+
+
+
+<li>
+    <ol class="nav-links">
+
+
+<div class="js-freemium-cta ps-relative">
+        <a href="#" title="Dismiss" class="js-freemium-cta-dismiss ps-absolute tn8 r0 s-btn s-btn__muted s-btn__xs">
+            <svg aria-hidden="true" class="svg-icon iconClearSm" width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41 10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41Z"/></svg>
+        </a>
+
+    <div class="fs-fine tt-uppercase ml8 mt16 mb8 fc-light">Teams</div>
+
+    <div class="bt bl bb bc-black-075 p12 pb6 fc-black-600 blr-sm overflow-hidden">
+        <strong class="fc-black-750 mb6">Stack Overflow for Teams</strong>
+        – Collaborate and share knowledge with a private group.
+
+        <img class="wmx100 mx-auto my8 h-auto d-block" width="139" height="114" src="https://cdn.sstatic.net/Img/teams/teams-illo-free-sidebar-promo.svg?v=47faa659a05e" alt="">
+
+        <a href="https://stackoverflow.com/teams/create/free?utm_source=so-owned&amp;utm_medium=side-bar&amp;utm_campaign=campaign-38&amp;utm_content=cta"
+           class="w100 s-btn s-btn__primary s-btn__xs js-gps-track"
+           data-gps-track="teams.create.left-sidenav.click({ Action: 6 })"
+           data-ga="[&quot;teams left navigation&quot;,&quot;left nav free cta&quot;,&quot;stackoverflow.com/teams/create/free&quot;,null,null]">Create a free Team</a>
+        <a href="https://stackoverflow.co/teams"
+           class="w100 s-btn s-btn__muted s-btn__xs js-gps-track"
+           data-gps-track="teams.create.left-sidenav.click({ Action: 5 })"
+           data-ga="[&quot;teams left navigation&quot;,&quot;left nav free cta&quot;,&quot;stackoverflow.com/teams&quot;,null,null]">What is Teams?</a>
+    </div>
+</div>
+    <script>
+        $('.js-freemium-cta-dismiss').click(function (e) {
+            e.preventDefault();
+            StackExchange.helpers.toggleAccountPreferenceFlags(32, true);
+            $('.js-freemium-cta').addClass('d-none');
+            $('.js-create-team-cta').removeClass('d-none');
+            return false;
+        });
+    </script>
+
+            <li class="d-flex ai-center jc-space-between ml8 mt24 mb4 js-create-team-cta d-none">
+                <div class="flex--item tt-uppercase fs-fine fc-light">Teams</div>
+                <div class="flex--item">
+                    <a href="javascript:void(0)" class="s-link p12 fc-black-500 h:fc-black-800 js-gps-track"
+                   role="button"
+                   aria-controls="popover-teams-create-cta"
+                   data-controller="s-popover"
+                   data-action="s-popover#toggle"
+                   data-s-popover-placement="bottom-start"
+                   data-s-popover-toggle-class="is-selected"
+                   data-gps-track="teams.create.left-sidenav.click({ Action: ShowInfo })"
+                   data-ga="[&quot;teams left navigation&quot;,&quot;left nav show teams info&quot;,null,null,null]">
+                        <svg aria-hidden="true" class="svg-icon iconInfoSm" width="14" height="14" viewBox="0 0 14 14"><path d="M7 1a6 6 0 1 1 0 12A6 6 0 0 1 7 1Zm1 10V6H6v5h2Zm0-6V3H6v2h2Z"/></svg>
+                    </a>
+
+                </div>
+            </li>
+            <li class="ps-relative js-create-team-cta d-none">
+                <a href="https://stackoverflow.com/teams/create/free?utm_source=so-owned&amp;utm_medium=side-bar&amp;utm_campaign=campaign-38&amp;utm_content=cta"
+               class="pl8 js-gps-track nav-links--link"
+               title="Stack Overflow for Teams is a private, secure spot for your organization's questions and answers."
+               data-gps-track="teams.create.left-sidenav.click({ Action: FreemiumTeamsCreateClick })"
+               data-ga="[&quot;teams left navigation&quot;,&quot;left nav team click&quot;,&quot;stackoverflow.com/teams/create/free&quot;,null,null]">
+                    <div class="d-flex ai-center">
+                        <div class="flex--item s-avatar va-middle bg-orange-400">
+                            <div class="s-avatar--letter mtn1">
+                                <svg aria-hidden="true" class="svg-icon iconBriefcaseSm" width="14" height="14" viewBox="0 0 14 14"><path d="M4 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1h.5c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5h-7A1.5 1.5 0 0 1 2 10.5v-5C2 4.67 2.67 4 3.5 4H4V3Zm5 1V3H5v1h4Z"/></svg>
+                            </div>
+                            <svg aria-hidden="true" class="native s-avatar--badge svg-icon iconShieldXSm" width="9" height="10" viewBox="0 0 9 10"><path d="M0 1.84 4.5 0 9 1.84v3.17C9 7.53 6.3 10 4.5 10 2.7 10 0 7.53 0 5.01V1.84Z" fill="var(--white)"/><path d="M1 2.5 4.5 1 8 2.5v2.51C8 7.34 5.34 9 4.5 9 3.65 9 1 7.34 1 5.01V2.5Zm2.98 3.02L3.2 7h2.6l-.78-1.48a.4.4 0 0 1 .15-.38c.34-.24.73-.7.73-1.14 0-.71-.5-1.23-1.41-1.23-.92 0-1.39.52-1.39 1.23 0 .44.4.9.73 1.14.12.08.18.23.15.38Z" fill="var(--black-500)"/></svg>
+                        </div>
+                        <div class="flex--item pl6">
+                            Create free Team
+                        </div>
+                    </div>
+                </a>
+            </li>
+    </ol>
+</li>
+            </ol>
+        </nav>
+    </div>
+
+        <div class="s-popover ws2" id="popover-discover-collectives" role="menu" aria-hidden="true">
+            <div class="s-popover--arrow"></div>
+            <div>
+                <svg aria-hidden="true" class="fc-orange-500 float-right ml24 svg-spot spotCollective" width="48" height="48" viewBox="0 0 48 48"><path d="M25.5 7a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM14 18.25c0-.69.56-1.25 1.25-1.25h22.5c.69 0 1.25.56 1.25 1.25V37.5a1 1 0 0 1-1.6.8l-4.07-3.05a1.25 1.25 0 0 0-.75-.25H15.25c-.69 0-1.25-.56-1.25-1.25v-15.5ZM7 24.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM25.5 48a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM48 24.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" opacity=".2"/><path d="M21 3.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0ZM24.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM0 23.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0ZM3.5 22a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM21 44.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Zm3.5-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm20-23a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM43 23.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm-23.23-3.14a1 1 0 0 1-.13 1.4l-2.08 1.74 2.08 1.73a1 1 0 1 1-1.28 1.54l-2.42-2.02a1.63 1.63 0 0 1 0-2.5l2.42-2.02a1 1 0 0 1 1.4.13Zm7.59 1.41a1 1 0 1 1 1.28-1.54l2.42 2.02c.78.65.78 1.85 0 2.5l-2.42 2.02a1 1 0 1 1-1.28-1.54l2.08-1.73-2.08-1.73ZM24.12 18a1 1 0 0 1 .87 1.12l-1 8a1 1 0 1 1-1.98-.24l1-8a1 1 0 0 1 1.11-.87Zm-11.87-5C11.01 13 10 14 10 15.25v15.5c0 1.24 1 2.25 2.25 2.25h17.33c.06 0 .11.02.15.05l4.07 3.05a2 2 0 0 0 3.2-1.6V15.25c0-1.24-1-2.25-2.25-2.25h-22.5ZM12 15.25c0-.14.11-.25.25-.25h22.5c.14 0 .25.11.25.25V34.5l-4.07-3.05a2.2 2.2 0 0 0-1.35-.45H12.25a.25.25 0 0 1-.25-.25v-15.5Zm7.24-10.68a1 1 0 1 0-.48-1.94A22.04 22.04 0 0 0 2.91 17.7a1 1 0 1 0 1.92.58 20.04 20.04 0 0 1 14.4-13.72Zm11.05-1.66a1 1 0 0 0-.58 1.92c6.45 1.92 11.54 7 13.46 13.46a1 1 0 1 0 1.92-.58 22.05 22.05 0 0 0-14.8-14.8ZM4.57 28.76a1 1 0 0 0-1.94.48 22.03 22.03 0 0 0 16.13 16.13 1 1 0 1 0 .48-1.94A20.03 20.03 0 0 1 4.57 28.76Zm40.8.48a1 1 0 1 0-1.94-.48 20.04 20.04 0 0 1-13.72 14.41 1 1 0 0 0 .58 1.92 22.04 22.04 0 0 0 15.08-15.85Z"/></svg>
+                <div class="pt4 fw-bold">Collectives on Stack Overflow</div>
+                <p class="my16 fs-caption fc-medium">Find centralized, trusted content and collaborate around the technologies you use most.</p>
+                <a href="/collectives"
+               class="js-gps-track s-btn s-btn__primary s-btn__xs"
+               data-gps-track="top_nav.click({is_current:false, location:3, destination:18})">
+                    Learn more
+                </a>
+            </div>
+        </div>
+
+
+        <div class="s-popover"
+         id="popover-teams-create-cta"
+         role="menu"
+         aria-hidden="true">
+            <div class="s-popover--arrow"></div>
+
+            <div class="ps-relative overflow-hidden">
+                <p class="mb2"><strong>Teams</strong></p>
+                <p class="mb12 fs-caption fc-black-400">Q&amp;A for work</p>
+                <p class="mb12 fs-caption fc-medium">Connect and share knowledge within a single location that is structured and easy to search.</p>
+                <a href="https://stackoverflow.co/teams"
+               class="js-gps-track s-btn s-btn__primary s-btn__xs"
+               data-gps-track="teams.create.left-sidenav.click({ Action: CtaClick })"
+               data-ga="[&quot;teams left navigation&quot;,&quot;left nav cta&quot;,&quot;stackoverflow.com/teams&quot;,null,null]">
+                    Learn more
+                </a>
+            </div>
+
+            <div class="ps-absolute t8 r8">
+                <svg aria-hidden="true" class="fc-orange-500 svg-spot spotPeople" width="48" height="48" viewBox="0 0 48 48"><path d="M13.5 28a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM7 30a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v5h11v-5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v10a2 2 0 0 1-2 2H33v5a1 1 0 0 1-1 1H20a1 1 0 0 1-1-1v-5H8a1 1 0 0 1-1-1V30Zm25-6.5a4.5 4.5 0 1 0 9 0 4.5 4.5 0 0 0-9 0ZM24.5 34a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Z" opacity=".2"/><path d="M16.4 26.08A6 6 0 1 0 7.53 26C5.64 26.06 4 27.52 4 29.45V40a1 1 0 0 0 1 1h9a1 1 0 1 0 0-2h-4v-7a1 1 0 1 0-2 0v7H6v-9.55c0-.73.67-1.45 1.64-1.45H16a1 1 0 0 0 .4-1.92ZM12 18a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm16.47 14a6 6 0 1 0-8.94 0A3.6 3.6 0 0 0 16 35.5V46a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V35.5c0-1.94-1.64-3.42-3.53-3.5ZM20 28a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-.3 6h8.6c1 0 1.7.75 1.7 1.5V45h-2v-7a1 1 0 1 0-2 0v7h-4v-7a1 1 0 1 0-2 0v7h-2v-9.5c0-.75.7-1.5 1.7-1.5ZM42 22c0 1.54-.58 2.94-1.53 4A3.5 3.5 0 0 1 44 29.45V40a1 1 0 0 1-1 1h-9a1 1 0 1 1 0-2h4v-7a1 1 0 1 1 2 0v7h2v-9.55A1.5 1.5 0 0 0 40.48 28H32a1 1 0 0 1-.4-1.92A6 6 0 1 1 42 22Zm-2 0a4 4 0 1 0-8 0 4 4 0 0 0 8 0Z"/><g opacity=".35"><path d="M17 10a1 1 0 011-1h12a1 1 0 110 2H18a1 1 0 01-1-1Zm1-5a1 1 0 100 2h12a1 1 0 100-2H18ZM14 1a1 1 0 00-1 1v12a1 1 0 001 1h5.09l4.2 4.2a1 1 0 001.46-.04l3.7-4.16H34a1 1 0 001-1V2a1 1 0 00-1-1H14Zm1 12V3h18v10h-5a1 1 0 00-.75.34l-3.3 3.7-3.74-3.75a1 1 0 00-.71-.29H15Z"/></g></svg>
+            </div>
+        </div>
+
+
+</div>
+
+
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+
+<div id="mainbar" role="main" aria-labelledby="h-all-questions">
+
+
+
+
+            <div class="d-flex">
+                    <h1 class="flex--item fl1 fs-headline1 mb24">All Questions</h1>
+                <div class="ml12 aside-cta flex--item print:d-none">
+                        <a href="/questions/ask" class="ws-nowrap s-btn s-btn__primary">
+        Ask Question
+    </a>
+
+                </div>
+            </div>
+
+
+
+<script type="application/json" data-role="module-args" data-module-name="entry-points/questions/userQuestionList.mod">{"regularTagsString":"","moderatorTagsString":""}</script>
+<script defer src="https://cdn.sstatic.net/Js/questions/userQuestionList.en.js?v=b0f4affaf457"></script>
+
+<div data-controller="se-uql" data-se-uql-id="" data-se-uql-sanitize-tag-query="false">
+    <div class="d-flex ai-center jc-space-between mb12 sm:fd-column sm:ai-stretch">
+        <div class="fs-body3 flex--item fl1 mr12 sm:mr0 sm:mb12">
+            22,401,335
+            questions
+        </div>
+
+        <div class="uql-nav flex--item"
+             data-action="se-uql-list:edit-current-requested@document->se-uql#toggleEditor">
+            <div class="d-flex ai-center jc-space-between">
+                <div class="js-uql-navigation s-btn-group flex--item mr16 ff-row-nowrap">
+                        <a class="s-btn s-btn__muted s-btn__outlined s-btn__sm d-flex is-selected" data-nav-value="Newest" href="/questions?tab=Newest" data-shortcut="N">
+                            <div class="flex--item">Newest</div>
+                        </a>
+                        <a class="s-btn s-btn__muted s-btn__outlined s-btn__sm d-flex" data-nav-value="Active" href="/questions?tab=Active" data-shortcut="A">
+                            <div class="flex--item">Active</div>
+                        </a>
+                        <a class="s-btn s-btn__muted s-btn__outlined s-btn__sm d-flex uql-nav--expanded-item" data-nav-value="Bounties" href="/questions?tab=Bounties" data-shortcut="E">
+                            <div class="flex--item">Bountied</div>
+                                <div class="s-badge s-badge__bounty s-badge__bounty s-badge__sm lh-xs ml4 px4 flex--item">327</div>
+                        </a>
+                        <a class="s-btn s-btn__muted s-btn__outlined s-btn__sm d-flex uql-nav--expanded-item" data-nav-value="Unanswered" href="/questions?tab=Unanswered" data-shortcut="U">
+                            <div class="flex--item">Unanswered</div>
+                        </a>
+                    <button class="s-btn s-btn__muted s-btn__outlined s-btn__sm s-btn__dropdown"
+                            role="button"
+                            data-controller="s-popover"
+                            data-action="s-popover#toggle"
+                            data-se-uql-target="toggleMoreButton"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            aria-controls="uql-more-popover">
+                        More
+                    </button>
+                </div>
+
+                <div class="s-popover z-dropdown ws2"
+                     id="uql-more-popover"
+                     data-se-uql-target="morePopover">
+                    <div class="s-popover--arrow"></div>
+                    <ul class="list-reset mtn8 mbn8 js-uql-navigation">
+                            <li class="uql-item my0 uql-nav--collapsed-item">
+                                    <a href="/questions?tab=Bounties" class="mln12 mrn12 px12 py6 fl1 s-block-link" data-shortcut="">
+                                        Bountied
+                                            <span class="s-badge s-badge__bounty s-badge__bounty s-badge__sm lh-xs px4">327</span>
+                                    </a>
+                            </li>
+                            <li class="uql-item my0 uql-nav--collapsed-item">
+                                    <a href="/questions?tab=Unanswered" class="mln12 mrn12 px12 py6 fl1 s-block-link" data-shortcut="">
+                                        Unanswered
+                                    </a>
+                            </li>
+                            <li class="uql-item my0">
+                                    <a href="/questions?tab=Frequent" class="mln12 mrn12 px12 py6 fl1 s-block-link" data-shortcut="F">
+                                        Frequent
+                                    </a>
+                            </li>
+                            <li class="uql-item my0">
+                                    <a href="/questions?tab=Votes" class="mln12 mrn12 px12 py6 fl1 s-block-link" data-shortcut="V">
+                                        Score
+                                    </a>
+                            </li>
+                                <li class="uql-item uql-item__separator bg-black-075 d:bg-black-025"></li>
+                            <li class="uql-item my0">
+                                    <span class="s-block-link c-default fc-black-350 mln12 mrn12 px12 py6">Unanswered (my tags)</span>
+                            </li>
+                            <li class="uql-item uql-item__separator bg-black-075 d:bg-black-025"></li>
+                            <li class="uql-item tt-uppercase fs-fine my12">
+                                <span class="fl1 as-center fc-black-600">Custom filters</span>
+                            </li>
+                            <li class="uql-item my12">
+                                <div class="py16 px24 ta-center fs-fine fc-black-400">
+                                    Save custom sorting &amp; filtering for easy access.
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="flex--item">
+                    <button class="s-btn s-btn__filled s-btn__sm s-btn__icon ws-nowrap"
+                            role="button"
+                            data-controller="s-expandable-control"
+                            data-s-expandable-control-toggle-class="is-selected"
+                            data-se-uql-target="toggleFormButton"
+                            aria-expanded="false"
+                            aria-controls="uql-form">
+                        <svg aria-hidden="true" class="svg-icon iconFilter" width="18" height="18" viewBox="0 0 18 18"><path d="M2 4h14v2H2V4Zm2 4h10v2H4V8Zm8 4H6v2h6v-2Z"/></svg> Filter
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <form class="s-expandable ps-relative z-active"
+          id="uql-form"
+          data-se-uql-target="form"
+          data-action="se-uql#navigate">
+        <input name="uqlId" type="hidden"/>
+        <div class="s-expandable--content">
+            <div class="bg-black-050 ba bc-black-100 bar-sm mb16">
+                <div class="px12 py16">
+                    <div class="d-flex gs32 fw-wrap">
+                        <div class="flex--item">
+                            <fieldset class="d-flex gs8 gsy fd-column">
+                                <legend class="flex--item s-label px0">Filter by</legend>
+        <div class="flex--item">
+            <div class="d-flex gs4 gsx ai-center">
+                <div class="flex--item">
+                    <input class="s-checkbox d-block"
+                           type="checkbox"
+                           name="filterId"
+                           value="NoAnswers"
+                           id="e5199435-de5d-4711-a641-ec0e84c01b5b" />
+                </div>
+                <label class="flex--item s-label fw-normal ws-nowrap" for="e5199435-de5d-4711-a641-ec0e84c01b5b">No answers</label>
+            </div>
+        </div>
+        <div class="flex--item">
+            <div class="d-flex gs4 gsx ai-center">
+                <div class="flex--item">
+                    <input class="s-checkbox d-block"
+                           type="checkbox"
+                           name="filterId"
+                           value="NoAcceptedAnswer"
+                           id="681f9c19-0669-4451-837c-7d21a75716cf" />
+                </div>
+                <label class="flex--item s-label fw-normal ws-nowrap" for="681f9c19-0669-4451-837c-7d21a75716cf">No accepted answer</label>
+            </div>
+        </div>
+        <div class="flex--item">
+            <div class="d-flex gs4 gsx ai-center">
+                <div class="flex--item">
+                    <input class="s-checkbox d-block"
+                           type="checkbox"
+                           name="filterId"
+                           value="Bounty"
+                           id="5d9df806-7592-4b23-bb5c-a8f35e75a9f4" />
+                </div>
+                <label class="flex--item s-label fw-normal ws-nowrap" for="5d9df806-7592-4b23-bb5c-a8f35e75a9f4">Has bounty</label>
+            </div>
+        </div>
+                            </fieldset>
+                        </div>
+                        <div class="flex--item">
+                            <fieldset class="d-flex gs8 gsy fd-column">
+                                <legend class="flex--item s-label px0">Sorted by</legend>
+        <div class="flex--item">
+            <div class="d-flex gs4 gsx ai-center">
+                <div class="flex--item">
+                    <input class="s-radio d-block"
+                           type="radio"
+                           name="sortId"
+                           value="Newest"
+                           checked="checked"
+                           id="ea615c82-5236-4812-aa30-2096029517f5" />
+                </div>
+                <label class="flex--item s-label fw-normal ws-nowrap" for="ea615c82-5236-4812-aa30-2096029517f5">Newest</label>
+            </div>
+        </div>
+        <div class="flex--item">
+            <div class="d-flex gs4 gsx ai-center">
+                <div class="flex--item">
+                    <input class="s-radio d-block"
+                           type="radio"
+                           name="sortId"
+                           value="RecentActivity"
+                           id="52d716d2-e48a-4bbe-b3f4-709f652292fc" />
+                </div>
+                <label class="flex--item s-label fw-normal ws-nowrap" for="52d716d2-e48a-4bbe-b3f4-709f652292fc">Recent activity</label>
+            </div>
+        </div>
+        <div class="flex--item">
+            <div class="d-flex gs4 gsx ai-center">
+                <div class="flex--item">
+                    <input class="s-radio d-block"
+                           type="radio"
+                           name="sortId"
+                           value="MostVotes"
+                           id="d644b8ab-78ed-48b2-a1a4-f3c0c4ffbfd7" />
+                </div>
+                <label class="flex--item s-label fw-normal ws-nowrap" for="d644b8ab-78ed-48b2-a1a4-f3c0c4ffbfd7">Highest score</label>
+            </div>
+        </div>
+        <div class="flex--item">
+            <div class="d-flex gs4 gsx ai-center">
+                <div class="flex--item">
+                    <input class="s-radio d-block"
+                           type="radio"
+                           name="sortId"
+                           value="MostFrequent"
+                           id="5d04a1a7-4899-43ec-bbcc-27cae0b88397" />
+                </div>
+                <label class="flex--item s-label fw-normal ws-nowrap" for="5d04a1a7-4899-43ec-bbcc-27cae0b88397">Most frequent</label>
+            </div>
+        </div>
+        <div class="flex--item">
+            <div class="d-flex gs4 gsx ai-center">
+                <div class="flex--item">
+                    <input class="s-radio d-block"
+                           type="radio"
+                           name="sortId"
+                           value="BountyEndingSoon"
+                           id="f7f0bf21-48e2-4639-a72e-b1dd7858fdd6" />
+                </div>
+                <label class="flex--item s-label fw-normal ws-nowrap" for="f7f0bf21-48e2-4639-a72e-b1dd7858fdd6">Bounty ending soon</label>
+            </div>
+        </div>
+                            </fieldset>
+                        </div>
+                        <div class="flex--item">
+                            <fieldset class="d-flex gs8 gsy fd-column">
+                                <legend class="flex--item s-label px0">Tagged with</legend>
+                                        <div class="flex--item">
+            <div class="d-flex gs4 gsx ai-center">
+                <div class="flex--item">
+                    <input class="s-radio d-block"
+                           type="radio"
+                           name="tagModeId"
+                           value="Watched"
+                           id="9dd66516-c4c2-4381-af81-ec1683e57d9b" />
+                </div>
+                <label class="flex--item s-label fw-normal ws-nowrap" for="9dd66516-c4c2-4381-af81-ec1683e57d9b">My watched tags</label>
+            </div>
+        </div>
+
+                                        <div class="flex--item">
+            <div class="d-flex gs4 gsx ai-center">
+                <div class="flex--item">
+                    <input class="s-radio d-block"
+                           type="radio"
+                           name="tagModeId"
+                           value="Specified"
+                           checked="checked"
+                           id="d597c2de-0405-43be-ae15-c7006ded5dc6" />
+                </div>
+                <label class="flex--item s-label fw-normal ws-nowrap" for="d597c2de-0405-43be-ae15-c7006ded5dc6">The following tags:</label>
+            </div>
+        </div>
+
+                            </fieldset>
+                            <div class="ps-relative ml24 mt8 ws2">
+                                <input id="uql-modal-tag-input" class="w100 s-input" name="tagQuery" data-se-uql-target="tagQuery" type="text" size="60" tabindex="0" placeholder="e.g. javascript or python">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p12 bt bc-black-100">
+                    <div class="d-flex">
+                        <div class="d-flex gs4 gsx fl1">
+                            <button class="s-btn s-btn__sm s-btn__primary flex--item" type="submit" data-se-uql-target="applyButton">Apply filter</button>
+                                <button class="s-btn s-btn__filled s-btn__sm flex--item"
+                                        role="button"
+                                        data-action="se-uql#showSaveModal">
+Save custom filter                                </button>
+                        </div>
+                        <div class="flex--item">
+                            <button class="s-btn s-btn__sm" data-action="se-uql#cancelEditor" type="button">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+        <script type="text/html" data-se-uql-target="saveTemplate">
+            <aside class="s-modal"
+                   tabindex="0"
+                   role="dialog"
+                   aria-labelledby="uql-modal-title"
+                   aria-describedby="uql-modal-description"
+                   aria-hidden="true"
+                   data-controller="se-uql-save">
+                <div class="s-modal--dialog" role="document" data-controller="se-draggable">
+                    <h1 class="s-modal--header fw-bold mb12 mr48 js-first-tabbable" id="uql-modal-title" data-se-draggable-target="handle" tabindex="0">Create a custom filter</h1>
+                    <form id="uql-modal-description" data-action="se-uql-save#createNew">
+                        <div class="d-flex gs4 gsy fd-column js-stacks-validation">
+                            <div class="flex--item">
+                                <div class="d-flex gs2 gsy fd-column">
+                                    <label class="flex--item s-label" for="uql-name-field">Filter title</label>
+                                </div>
+                            </div>
+                            <div class="d-flex ps-relative">
+                                <input class="s-input js-modal-initial-focus"
+                                       name="name"
+                                       id="uql-name-field"
+                                       type="text"
+                                       autocomplete="off"
+                                       placeholder="Give your custom filter a title"
+                                       data-se-uql-save-target="name"
+                                       data-action="input->se-uql-save#liveValidate" />
+                            </div>
+                            <div class="s-input-message mt4 js-stacks-validation-message d-none"></div>
+                        </div>
+                        <div class="mt12">
+                                <button class="s-btn s-btn__primary" type="submit" data-se-uql-target="saveButton">
+                                    Save filter
+                                </button>
+                                <button class="s-btn js-modal-close" type="button" data-action="se-uql#dismissModal">Cancel</button>
+                        </div>
+                    </form>
+                    <button class="s-modal--close s-btn s-btn__muted js-modal-close js-last-tabbable" href="#" aria-label="Close">
+                        <svg aria-hidden="true" class="svg-icon iconClearSm" width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41 10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41Z"/></svg>
+                    </button>
+                </div>
+            </aside>
+        </script>
+</div>
+
+
+
+        <div id="questions" class=" flush-left">
+
+
+
+
+<div id="question-summary-71668902" class="s-post-summary js-post-summary" data-post-id="71668902" data-post-type-id="1">
+    <div class="s-post-summary--stats js-post-summary-stats">
+
+
+                <div class="s-post-summary--stats-item s-post-summary--stats-item__emphasized" title="Score of 0">
+            <span class="s-post-summary--stats-item-number">0</span>
+            <span class="s-post-summary--stats-item-unit">votes</span>
+        </div>
+        <div class="s-post-summary--stats-item  " title="0 answers">
+            <span class="s-post-summary--stats-item-number">0</span>
+            <span class="s-post-summary--stats-item-unit">answers</span>
+        </div>
+        <div class="s-post-summary--stats-item " title="2 views">
+            <span class="s-post-summary--stats-item-number">2</span>
+            <span class="s-post-summary--stats-item-unit">views</span>
+        </div>
+
+
+<!-- cycle this-->
+
+<div id="question-summary-71668876" class="s-post-summary js-post-summary" data-post-id="71668876" data-post-type-id="1">
+    <div class="s-post-summary--stats js-post-summary-stats">
+
+
+                <div class="s-post-summary--stats-item s-post-summary--stats-item__emphasized" title="Score of 0">
+            <span class="s-post-summary--stats-item-number">0</span>
+            <span class="s-post-summary--stats-item-unit">votes</span>
+        </div>
+        <div class="s-post-summary--stats-item  " title="0 answers">
+            <span class="s-post-summary--stats-item-number">0</span>
+            <span class="s-post-summary--stats-item-unit">answers</span>
+        </div>
+        <div class="s-post-summary--stats-item " title="8 views">
+            <span class="s-post-summary--stats-item-number">8</span>
+            <span class="s-post-summary--stats-item-unit">views</span>
+        </div>
+
+
+
+    </div>
+    <div class="s-post-summary--content">
+
+        <h3 class="s-post-summary--content-title">
+
+
+
+            <a href="/questions/71668876/why-are-there-so-many-design-patterns-oop-understanding-issues" class="s-link">Why are there so many design patterns? OOP understanding issues</a>
+        </h3>
+            <div class="s-post-summary--content-excerpt">
+                currently im studying GoF, Martin Fowler and Robert C Martin. Im asking myself why there are so many design patterns for OOP? Its seems that OOP (in Java or C#) create a lot of problems and design ...
+            </div>
+        <div class="s-post-summary--meta">
+            <div class="s-post-summary--meta-tags tags js-tags t-java t-c&#xF1; t-oop t-design-patterns t-solid-principles">
+
+<a href="/questions/tagged/java" class="post-tag flex--item mt0 js-tagname-java" title="show questions tagged &#39;java&#39;" rel="tag">java</a> <a href="/questions/tagged/c%23" class="post-tag flex--item mt0 js-tagname-cñ" title="show questions tagged &#39;c#&#39;" rel="tag">c#</a> <a href="/questions/tagged/oop" class="post-tag flex--item mt0 js-tagname-oop" title="show questions tagged &#39;oop&#39;" rel="tag">oop</a> <a href="/questions/tagged/design-patterns" class="post-tag flex--item mt0 js-tagname-design-patterns" title="show questions tagged &#39;design-patterns&#39;" rel="tag">design-patterns</a> <a href="/questions/tagged/solid-principles" class="post-tag flex--item mt0 js-tagname-solid-principles" title="show questions tagged &#39;solid-principles&#39;" rel="tag">solid-principles</a>
+            </div>
+
+
+
+<div class="s-user-card s-user-card__minimal">
+
+            <a href="/users/18625069/cong" class="s-avatar s-avatar__16 s-user-card--avatar">        <div class="gravatar-wrapper-16" data-user-id="18625069">
+            <img src="https://www.gravatar.com/avatar/88ecacb89edca94dc67c749ccdc92620?s=32&amp;d=identicon&amp;r=PG" alt="user avatar" width="16" , height="16" class="s-avatar--image" />
+        </div>
+</a>
+
+    <div class="s-user-card--info">
+            <div class="s-user-card--link d-flex gs4" >
+                <a href="/users/18625069/cong" class="flex--item">Cong</a>
+            </div>
+
+                <ul class="s-user-card--awards">
+            <li class="s-user-card--rep"><span class="todo-no-class-here" title="reputation score " dir="ltr">11</span></li>
+
+        </ul>
+
+
+    </div>
+
+        <time class="s-user-card--time">asked <span title="2022-03-29 21:18:16Z" class="relativetime">3 mins ago</span></time>
+</div>
+
+        </div>
+    </div>
+</div>
+
+<!-- end cycle-->
+
+                        <br class="cbt" />
+
+        </div>
+
+        <br class="cbt" />
+<div class="s-pagination site1 themed page-sizer float-right">
+  <a href="/questions?tab=newest&amp;pagesize=15" title="Show 15 items per page" class="s-pagination--item is-selected">15</a>
+  <a href="/questions?tab=newest&amp;pagesize=30" title="Show 30 items per page" class="s-pagination--item">30</a>
+  <a href="/questions?tab=newest&amp;pagesize=50" title="Show 50 items per page" class="s-pagination--item">50</a>
+  <span class="s-pagination--item s-pagination--item__clear">per page</span>
+</div>
+<div class="s-pagination site1 themed pager float-left">
+<div class="s-pagination--item is-selected">1</div>
+<a class="s-pagination--item js-pagination-item" href="/questions?tab=newest&page=2" rel="" title="Go to page 2">2</a>
+<a class="s-pagination--item js-pagination-item" href="/questions?tab=newest&page=3" rel="" title="Go to page 3">3</a>
+<a class="s-pagination--item js-pagination-item" href="/questions?tab=newest&page=4" rel="" title="Go to page 4">4</a>
+<a class="s-pagination--item js-pagination-item" href="/questions?tab=newest&page=5" rel="" title="Go to page 5">5</a>
+<div class="s-pagination--item s-pagination--item__clear">…</div>
+<a class="s-pagination--item js-pagination-item" href="/questions?tab=newest&page=1493423" rel="" title="Go to page 1493423">1493423</a>
+<a class="s-pagination--item js-pagination-item" href="/questions?tab=newest&page=2" rel="next" title="Go to page 2"> Next</a></div>
+
+</div>
+    <div id="sidebar" role="complementary" aria-label="sidebar">
+
+<div class="s-sidebarwidget s-sidebarwidget__yellow s-anchors s-anchors__grayscale mb16" data-tracker="cb=1">
+    <ul class="d-block p0 m0">
+                    <div class="s-sidebarwidget--header s-sidebarwidget__small-bold-text fc-light d:fc-black-900 bb bbw1">
+                        The Overflow Blog
+                    </div>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+<svg aria-hidden="true" class="va-text-top svg-icon iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="m11.1 1.71 1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0ZM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88Z"/></svg>            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://stackoverflow.blog/2022/03/28/picture-perfect-images-with-the-modern-element/" class="js-gps-track" data-ga="[&quot;community bulletin board&quot;,&quot;The Overflow Blog&quot;,&quot;https://stackoverflow.blog/2022/03/28/picture-perfect-images-with-the-modern-element/&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 1, position: 0 })">Picture perfect images with the modern &lt;img&gt; element</a>
+            </div>
+        </li>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+<svg aria-hidden="true" class="va-text-top svg-icon iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="m11.1 1.71 1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0ZM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88Z"/></svg>            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://stackoverflow.blog/2022/03/29/give-us-23-minutes-well-give-you-some-flow-state-ep-428/" class="js-gps-track" data-ga="[&quot;community bulletin board&quot;,&quot;The Overflow Blog&quot;,&quot;https://stackoverflow.blog/2022/03/29/give-us-23-minutes-well-give-you-some-flow-state-ep-428/&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 1, position: 1 })">Give us 23 minutes, we’ll give you some flow state&#160;(Ep. 428)</a>
+            </div>
+        </li>
+                    <div class="s-sidebarwidget--header s-sidebarwidget__small-bold-text fc-light d:fc-black-900 bb bbw1">
+                        Featured on Meta
+                    </div>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://meta.stackexchange.com/questions/376743/stack-exchange-qa-access-will-not-be-restricted-in-russia" class="js-gps-track" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/376743/stack-exchange-qa-access-will-not-be-restricted-in-russia&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 3, position: 2 })">Stack Exchange Q&amp;A access will not be restricted in Russia</a>
+            </div>
+        </li>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+<div class="favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://meta.stackoverflow.com/questions/416851/staging-ground-workflow-question-details-actions" class="js-gps-track" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/416851/staging-ground-workflow-question-details-actions&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 6, position: 3 })">Staging Ground Workflow: Question Details &amp; Actions</a>
+            </div>
+        </li>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+<div class="favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://meta.stackoverflow.com/questions/416735/ask-wizard-for-new-users-feature-test-is-now-live" class="js-gps-track" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/416735/ask-wizard-for-new-users-feature-test-is-now-live&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 6, position: 4 })">Ask Wizard for New Users Feature Test is now Live</a>
+            </div>
+        </li>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+<div class="favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://meta.stackoverflow.com/questions/416887/calling-up-a-moderator-from-the-2021-election-welcome-dharman" class="js-gps-track" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/416887/calling-up-a-moderator-from-the-2021-election-welcome-dharman&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 6, position: 5 })">Calling up a moderator from the 2021 election - welcome, Dharman!</a>
+            </div>
+        </li>
+                    <div class="s-sidebarwidget--header s-sidebarwidget__small-bold-text fc-light d:fc-black-900 bb bbw1">
+                        Hot Meta Posts
+                    </div>
+        <li class="s-sidebarwidget--item d-flex px16">
+            <div class="flex--item1 fl-shrink0">
+                        <span class="fc-black-500" title="Question score (upvotes - downvotes)">14</span>
+            </div>
+            <div class="flex--item wmn0 ow-break-word">
+                <a href="https://meta.stackoverflow.com/questions/416904/why-do-people-answer-questions-they-find-inscrutable" class="js-gps-track" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://meta.stackoverflow.com/questions/416904/why-do-people-answer-questions-they-find-inscrutable&quot;,null,null]" data-gps-track="communitybulletin.click({ priority: 7, position: 6 })">Why do people answer questions they find inscrutable?</a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+            <div class="s-sidebarwidget mb16 module" data-controller="se-uql-list">
+    <div class="s-sidebarwidget--header">Custom Filters</div>
+    <ul class="s-sidebarwidget--content s-sidebarwidget__items">
+        <li class="s-sidebarwidget--item fc-black-300">
+            <a class="s-btn s-btn__link" data-action="se-uql-list#editCurrent" href="/questions?edited=true">Create a custom filter</a>
+        </li>
+    </ul>
+</div>
+
+<div class="js-tag-preferences-container">
+    <div class="s-sidebarwidget mb16">
+        <div class="s-sidebarwidget--header d-flex">
+            <span class="flex--item fl1 overflow-hidden ow-break-word">
+Watched Tags            </span>
+            <a class="js-edit-watched-tags flex--item ml12 d-none" href="/users/tag-notifications/18439792#watching-1">edit</a>
+        </div>
+        <div class="s-sidebarwidget--content fd-column">
+                <div class="js-watched-tag-list d-flex gs4 py4 fw-wrap d-none">
+                    <script type="text/html" class="js-tag-template"><div class="js-tag flex--item "><a href="/questions/tagged/template" class="post-tag" title="show questions tagged &#39;template&#39;" rel="tag">template</a></div></script>
+                </div>
+
+            <div class="js-add-watched-container"></div>
+
+            <div class="js-show-add-watched-container d-flex fd-column ta-center ai-center gsy gs16 mx-auto">
+                <div class="flex--item">
+                    <svg aria-hidden="true" class="fc-blue-400 d:fc-blue-700 svg-spot spotSearch" width="48" height="48" viewBox="0 0 48 48"><path opacity=".2" d="M29.22 38.1a3.4 3.4 0 0 1 4.81-4.82l8.81 8.81a3.4 3.4 0 0 1-4.81 4.81l-8.81-8.8Z"/><path d="M18.5 5a1 1 0 1 0 0 2c.63 0 1.24.05 1.84.15a1 1 0 0 0 .32-1.98A13.6 13.6 0 0 0 18.5 5Zm7.02 1.97a1 1 0 1 0-1.04 1.7 11.5 11.5 0 0 1 5.44 8.45 1 1 0 0 0 1.98-.24 13.5 13.5 0 0 0-6.38-9.91ZM18.5 0a18.5 18.5 0 1 0 10.76 33.55c.16.57.46 1.12.9 1.57L40 44.94A3.5 3.5 0 1 0 44.94 40l-9.82-9.82c-.45-.45-1-.75-1.57-.9A18.5 18.5 0 0 0 18.5 0ZM2 18.5a16.5 16.5 0 1 1 33 0 16.5 16.5 0 0 1-33 0Zm29.58 15.2a1.5 1.5 0 1 1 2.12-2.12l9.83 9.83a1.5 1.5 0 1 1-2.12 2.12l-9.83-9.83Z"/></svg>
+                </div>
+                <p class="flex--item wmx2 fc-black-300">
+Watch tags to curate your list of questions.                </p>
+                <a class="js-show-add-watched flex--item s-btn s-btn__filled s-btn__sm s-btn__icon"><svg aria-hidden="true" class="svg-icon iconEye" width="18" height="18" viewBox="0 0 18 18"><path d="M9.06 3C4 3 1 9 1 9s3 6 8.06 6C14 15 17 9 17 9s-3-6-7.94-6ZM9 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-2a2 2 0 0 0 2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2 2 2 0 0 0 2 2Z"/></svg> Watch a tag</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="-ignored s-sidebarwidget mb16">
+        <div class="s-sidebarwidget--header d-flex">
+            <span class="flex--item fl1">Ignored Tags</span>
+            <a class="js-edit-ignored-tags flex--item ml12 d-none" href="/users/tag-notifications/18439792#ignored-1">edit</a>
+        </div>
+        <div class="s-sidebarwidget--content fd-column">
+            <div class="js-ignored-tag-list d-flex gs4 py4 fw-wrap ai-baseline d-none">
+                <script type="text/html" class="js-tag-template"><div class="js-tag flex--item "><a href="/questions/tagged/template" class="post-tag" title="show questions tagged &#39;template&#39;" rel="tag">template</a></div></script>
+            </div>
+
+            <div class="js-add-ignored-container"></div>
+
+            <button class="js-show-add-ignored none mx-auto d-inline-block s-btn s-btn__filled s-btn__sm">Add an ignored tag</button>
+
+            <div class="js-ignored-edit-visible mt8 d-none">
+                <div class="d-flex ai-center">
+                    <div class="flex--item mr8"><input type="radio" name="hideIgnored" class="js-hide-ignored s-radio" id="b185ae45-97c5-4365-a7fb-189505a0796e-on" /></div>
+                    <label for="b185ae45-97c5-4365-a7fb-189505a0796e-on" class="flex--item s-label fs-body1 fw-normal">Hide questions in your ignored tags</label>
+                </div>
+                <div class="d-flex ai-center">
+                    <div class="flex--item mr8"><input type="radio" name="hideIgnored" class="js-dim-ignored s-radio" id="b185ae45-97c5-4365-a7fb-189505a0796e-off" checked="checked" /></div>
+                    <label for="b185ae45-97c5-4365-a7fb-189505a0796e-off" class="flex--item s-label fs-body1 fw-normal">Gray out questions in your ignored tags</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function() {
+        StackExchange.tagPreferences.applyPrefs(true, [], undefined);
+    });
+</script>
+
+    <div class="s-sidebarwidget js-join-leave-container mb16">
+        <div class="s-sidebarwidget--header">
+            <a class="s-sidebarwidget--action" href="/collectives-all">
+                see all
+            </a>
+            Collectives
+        </div>
+            <div class="s-sidebarwidget--content s-sidebarwidget__items js-gps-related-tags py16 fc-black-700" id="related-tags">
+                <div class="d-flex sm:fd-column ai-center sm:ai-stretch">
+                    <div class="flex--item d-flex fl1 sm:mb8">
+                        <div class="flex--item mr12">
+                            <div class="themed subcommunity-avatar subcommunity-google-cloud s-avatar s-avatar__32"></div>
+                        </div>
+                        <div class="flex--item fl1">
+                            <h1 class="fs-body2 mb0 fc-blue-600"><a href="/collectives/google-cloud" class="js-gps-track" data-gps-track="subcommunity_link.click({ subcommunity_user_type: 0, subcommunity_slug: google-cloud, link_source: 5 })">Google Cloud</a></h1>
+                            <div class="fs-caption fc-black-700 mb8">19k Members</div>
+                        </div>
+                        <div class="flex--item">
+                            <form method="post">
+                                <input type="hidden" name="fkey" value="25de4885af9d7958e1ea0588b193371099e4940fc20362a0cdd0d742dac9d610">
+                                    <button class="flex--item s-btn s-btn__sm s-btn__outlined js-join-community"
+                                            type="submit"
+                                            aria-pressed="false"
+                                            data-slug="google-cloud"
+                                            data-url="/collectives/google-cloud/subscriber/join"
+                                            formaction="/collectives/google-cloud/subscriber/join">
+                                        Join
+                                    </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <span class="fs-body1 v-truncate2 ow-break-word">Google Cloud provides organizations with leading infrastructure, platform capabilities and industry solutions to help them solve their most critical business problems.</span>
+            </div>
+            <div class="s-sidebarwidget--content s-sidebarwidget__items js-gps-related-tags py16 fc-black-700" id="related-tags">
+                <div class="d-flex sm:fd-column ai-center sm:ai-stretch">
+                    <div class="flex--item d-flex fl1 sm:mb8">
+                        <div class="flex--item mr12">
+                            <div class="themed subcommunity-avatar subcommunity-gitlab s-avatar s-avatar__32"></div>
+                        </div>
+                        <div class="flex--item fl1">
+                            <h1 class="fs-body2 mb0 fc-blue-600"><a href="/collectives/gitlab" class="js-gps-track" data-gps-track="subcommunity_link.click({ subcommunity_user_type: 0, subcommunity_slug: gitlab, link_source: 5 })">GitLab</a></h1>
+                            <div class="fs-caption fc-black-700 mb8">11k Members</div>
+                        </div>
+                        <div class="flex--item">
+                            <form method="post">
+                                <input type="hidden" name="fkey" value="25de4885af9d7958e1ea0588b193371099e4940fc20362a0cdd0d742dac9d610">
+                                    <button class="flex--item s-btn s-btn__sm s-btn__outlined js-join-community"
+                                            type="submit"
+                                            aria-pressed="false"
+                                            data-slug="gitlab"
+                                            data-url="/collectives/gitlab/subscriber/join"
+                                            formaction="/collectives/gitlab/subscriber/join">
+                                        Join
+                                    </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <span class="fs-body1 v-truncate2 ow-break-word">GitLab is the open DevOps platform, delivered as a single application. Our open source collaboration is a great place to share and learn information about version control, CI/CD, DevSecOps, and all-remote workflows.</span>
+            </div>
+            <div class="s-sidebarwidget--content s-sidebarwidget__items js-gps-related-tags py16 fc-black-700" id="related-tags">
+                <div class="d-flex sm:fd-column ai-center sm:ai-stretch">
+                    <div class="flex--item d-flex fl1 sm:mb8">
+                        <div class="flex--item mr12">
+                            <div class="themed subcommunity-avatar subcommunity-twilio s-avatar s-avatar__32"></div>
+                        </div>
+                        <div class="flex--item fl1">
+                            <h1 class="fs-body2 mb0 fc-blue-600"><a href="/collectives/twilio" class="js-gps-track" data-gps-track="subcommunity_link.click({ subcommunity_user_type: 0, subcommunity_slug: twilio, link_source: 5 })">Twilio</a></h1>
+                            <div class="fs-caption fc-black-700 mb8">753 Members</div>
+                        </div>
+                        <div class="flex--item">
+                            <form method="post">
+                                <input type="hidden" name="fkey" value="25de4885af9d7958e1ea0588b193371099e4940fc20362a0cdd0d742dac9d610">
+                                    <button class="flex--item s-btn s-btn__sm s-btn__outlined js-join-community"
+                                            type="submit"
+                                            aria-pressed="false"
+                                            data-slug="twilio"
+                                            data-url="/collectives/twilio/subscriber/join"
+                                            formaction="/collectives/twilio/subscriber/join">
+                                        Join
+                                    </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <span class="fs-body1 v-truncate2 ow-break-word">Twilio has democratized channels like voice, text, chat, video, and email by virtualizing the world&#x2019;s communications infrastructure through APIs that are simple enough for any developer, yet robust enough to power the world&#x2019;s most demanding applications.</span>
+            </div>
+    </div>
+
+            <div class="js-sidebar-zone" style="min-height: 735px;">
+                    <style>
+    </style>
+<div class="js-zone-container zone-container-sidebar">
+    <div id="clc-tsb" class="everyonelovesstackoverflow everyoneloves__top-sidebar"></div>
+    <div class="js-report-ad-button-container " style="width: 300px"></div>
+</div>
+            </div>
+    </div>
+        </div>
+</div>
+        </div>
+    </div>
+{% endblock %}

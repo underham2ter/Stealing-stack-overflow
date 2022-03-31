@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'register.apps.RegisterConfig',
+    'questions.apps.QuestionsConfig',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'main/templates'),
-                 os.path.join(BASE_DIR, 'register/templates')],
+                 os.path.join(BASE_DIR, 'register/templates'),
+                 os.path.join(BASE_DIR, 'questions/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

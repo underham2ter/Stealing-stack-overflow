@@ -69,7 +69,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries': {
-                'registration': 'register.templatetags.registration',
+                # 'registration': 'register.templatetags.registration',
+                # 'question_filters': 'questions.templatetags.question_filters',
             }
         },
     },
@@ -123,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -137,6 +138,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -145,3 +147,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
+
+LOGIN_URL = '/login'
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'root')
+
+
+STATIC_DIRS = [
+              os.path.join(BASE_DIR, 'boot'),
+                ]

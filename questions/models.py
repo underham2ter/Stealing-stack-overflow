@@ -17,7 +17,8 @@ class Question(models.Model):
     added_at = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(default=0)
     author = models.ForeignKey(User, related_name="question_author", on_delete=models.CASCADE)
-    likes = models.ManyToManyField(User, related_name='question_like_user')
+    likes = models.ManyToManyField(User, related_name='liked_by')
+    dislikes = models.ManyToManyField(User, related_name='disliked_by')
     objects = QuestionManager()
 
 

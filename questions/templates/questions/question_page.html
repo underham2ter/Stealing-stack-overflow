@@ -37,11 +37,18 @@ Question
 
 
     <div class="question">
-
+<!--rating buttons-->
         <div class="post-layout">
             <div class="votecell post-layout--left">
-                <div class="js-voting-container d-flex jc-center fd-column ai-stretch gs4 fc-black-200" data-post-id="71720361">
-            <button class="js-vote-up-btn flex--item s-btn s-btn__unset c-pointer "
+                <div class="js-voting-container d-flex jc-center fd-column ai-stretch gs4 fc-black-200">
+
+            <button class="js-vote-up-btn flex--item s-btn s-btn__unset c-pointer"
+                    id = "upvote"
+                    {% if already_liked %}
+                    style="color: orangered;"
+                    {% else %}
+                    style="color: lightgrey;"
+                    {% endif %}
                     data-controller="s-tooltip"
                     data-s-tooltip-placement="right"
                     title="This question shows research effort; it is useful and clear"
@@ -53,12 +60,20 @@ Question
             </button>
             <div class="js-vote-count flex--item d-flex fd-column ai-center fc-black-500 fs-title"
                  itemprop="upvoteCount"
-                 data-value="-1">
-                -1
+                 id="rating">
+
+                {{ rating }}
+
             </div>
             <button class="js-vote-down-btn flex--item s-btn s-btn__unset c-pointer "
+                    id = "downvote"
                     data-controller="s-tooltip"
                     data-s-tooltip-placement="right"
+                    {% if already_disliked %}
+                    style="color: orangered;"
+                    {% else %}
+                    style="color: lightgrey;"
+                    {% endif %}
                     title="This question does not show any research effort; it is unclear or not useful"
                     aria-pressed="false"
                     aria-label="Down vote"
@@ -99,7 +114,6 @@ Question
 
             </div>
         </div>
-
     </div>
 
 
@@ -192,4 +206,59 @@ Question
 
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+$('#upvote').click(function(){
+    $.ajax({
+             type: "POST",
+             url: '',
+             data: {'operation':'upvote','csrfmiddlewaretoken': '{{ csrf_token }}'},
+             dataType: "json",
+             success: function(response) {
+                    dv_button = document.getElementById('downvote')
+                    uv_button = document.getElementById('upvote')
+
+                    if(response.liked===true){
+                        $(uv_button).css("color","orangered");
+                        $(dv_button).css("color","lightgrey");
+                    }
+                    else if(response.liked===false){
+                        $(uv_button).css("color","lightgrey");
+                    }
+                    $('#rating').text(response.rating)
+
+
+              }
+
+        });
+
+  })
+
+$('#downvote').click(function(){
+    $.ajax({
+             type: "POST",
+             url: '',
+             data: {'operation':'downvote','csrfmiddlewaretoken': '{{ csrf_token }}'},
+             dataType: "json",
+             success: function(response) {
+                    dv_button = document.getElementById('downvote')
+                    uv_button = document.getElementById('upvote')
+                    if(response.disliked===true){
+                        $(dv_button).css("color","orangered");
+                        $(uv_button).css("color","lightgrey");
+                    }
+                    else if(response.disliked===false){
+                        $(dv_button).css("color","lightgrey");
+                    }
+                    $('#rating').text(response.rating)
+
+
+              }
+
+        });
+
+  })
+</script>
 {% endblock %}

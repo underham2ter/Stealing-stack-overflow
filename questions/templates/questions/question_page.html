@@ -1,5 +1,7 @@
 {% extends 'main/base.html' %}
 
+{% load question_filters %}
+
 {% block title %}
 Question
 {% endblock %}
@@ -10,7 +12,7 @@ Question
         <div class="inner-content clearfix">
 
                 <div id="question-header" class="d-flex sm:fd-column">
-                            <h1 itemprop="name" class="fs-headline1 ow-break-word mb8 flex--item fl1">{{ title }}</h1>
+                            <h1 itemprop="name" class="fs-headline1 ow-break-word mb8 flex--item fl1">{{ question.title }}</h1>
                     <div class="ml12 aside-cta flex--item print:d-none sm:ml0 sm:mb12 sm:order-first sm:as-end">
                             <a href="/questions/ask" class="ws-nowrap s-btn s-btn__primary">
             Ask Question
@@ -20,13 +22,13 @@ Question
                 </div>
 
                 <div class="d-flex fw-wrap pb8 mb16 bb bc-black-075">
-                        <div class="flex--item ws-nowrap mr16 mb8" title="2022-04-02 18:55:16Z">
+                        <div class="flex--item ws-nowrap mr16 mb8">
                             <span class="fc-light mr2">Added on</span>
-                            <time itemprop="dateCreated">{{ date|date:'SHORT_DATE_FORMAT' }}</time>
+                            <time itemprop="dateCreated">{{ question.added_at|date:'SHORT_DATE_FORMAT' }}</time>
                         </div>
                         <div class="flex--item ws-nowrap mr16 mb8">
                             <span class="fc-light mr2">by</span>
-                            {{ author }}
+                            {{ question.author }}
                         </div>
     <!--                    <div class="flex&#45;&#45;item ws-nowrap mb8" title="Viewed 2 times">-->
     <!--                        <span class="fc-light mr2">Viewed</span>-->
@@ -62,7 +64,7 @@ Question
                  itemprop="upvoteCount"
                  id="rating">
 
-                {{ rating }}
+                {{ question.rating }}
 
             </div>
             <button class="js-vote-down-btn flex--item s-btn s-btn__unset c-pointer "
@@ -102,7 +104,7 @@ Question
     <div class="postcell post-layout--right">
 
         <div class="s-prose js-post-body" itemprop="text">
-                {{ text }}
+                {{ question.text }}
         </div>
 
         <div class="mb0 ">
@@ -149,6 +151,9 @@ Question
                             <div class="answers-subheader d-flex ai-center mb8">
                                 <div class="flex--item fl1">
                                     <h2 class="mb0" data-answercount="0">
+                                        {% if question.q_to_ans.all%}
+                                        {{question.q_to_ans.count|add_text:'Answer'}}
+                                        {% endif %}
                                         <span style="display:none;" itemprop="answerCount">0</span>
                                     </h2>
                                 </div>
@@ -161,8 +166,31 @@ Question
 
                         </div>
 
+{% for answer in question.q_to_ans.all %}
+    <div class="answercell post-layout--right">
+        <div class="d-flex gs8 s-anchors s-anchors__muted fw-wrap">
+            <div class="user-info ">
+                <div class="user-action-time">
+                    {{answer.author}} answered <span class="relativetime">{{answer.added_at|time_difference}}:</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="s-prose js-post-body" itemprop="text">
+            <p>{{answer.text}} </p>
+        </div>
+        <div class="mt24">
+            <div class="d-flex fw-wrap ai-start jc-end gs8 gsy">
+                <div class="flex--item mr16" style="flex: 1 1 100px;">
+                </div>
+            </div>
+        </div>
+
+{% endfor %}
 
 <form id="post-form"  method="post" class="js-add-answer-component post-form">
+
     <h2 class="space">
         Your Answer
     </h2>
@@ -170,40 +198,37 @@ Question
     <div class="ps-relative">
             <div class="wmd-container mb8">
                 <div class="js-stacks-validation">
+                    {% for e in form.non_field_errors %}
+                    <div class="alert alert-danger">{{ e }}</div>
+                    {% endfor %}
                         <div class="ps-relative">
     <!--                        !important-->
-                            <textarea id="wmd-input"
-                                      name="post-text"
-                                      class=""
-                                      data-post-type-id="2"
-                                      tabindex="101"
-                                      data-min-length=""></textarea>
+                            {% csrf_token %}
+                            {{ form.text|add_id:"wmd-input"}}
                         </div>
+
                         <div class="s-input-message mt4 d-none js-stacks-validation-message"></div>
+
                     </div>
                 </div>
+            </div>
+
+            <div class="form-submit cbt d-flex gsx gs4">
+                <button id="submit-button" class="flex--item s-btn s-btn__primary s-btn__icon" type="submit" name="answer_submit" tabindex="120">
+                    Post Your Answer
+                </button>
+
             </div>
 
 </form>
 
 
-                                    <div class="ps-relative">
 
-                                    </div>
 
-                                        <div class="form-submit cbt d-flex gsx gs4">
-                                            <button id="submit-button" class="flex--item s-btn s-btn__primary s-btn__icon" type="submit" tabindex="120" autocomplete="off">
-    Post Your Answer                                        </button>
-                                            <button class="flex--item s-btn s-btn__danger discard-answer dno">
-                                                Discard
-                                            </button>
-                                        </div>
-                                        <div class="js-general-error general-error cbt d-none"></div>
 
                     </div>
                 </div>
         </div>
-
     </div>
 </div>
 

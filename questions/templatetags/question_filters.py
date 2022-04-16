@@ -63,9 +63,26 @@ def time_difference(value):
                   ]
 
     filtered_tda = list(filter(lambda x: x != 0, (map(int, tda))))
-    value = filtered_tda[0]
-    appendix = appendixes[len(filtered_tda)-1][int(filtered_tda[0] <= 1)]
+    if filtered_tda:
+        value = filtered_tda[0]
+        appendix = appendixes[len(filtered_tda) - 1][int(filtered_tda[0] <= 1)]
+        return '{value} {appendix} ago'.format(value=value, appendix=appendix)
+    else:
+        return 'now'
 
-    return 'asked {value} {appendix} ago'.format(value=value, appendix=appendix)
+
+@register.filter(name='add_id')
+def add_id(value, arg):
+    """
+    Adds html id to an object
+    """
+    return value.as_widget(attrs={'id': arg})
 
 
+@register.filter(name='add_text')
+def add_text(value, arg):
+    """
+    Adds text after object
+    """
+    arg += '' if value == 1 else 's'
+    return '{value} {arg}'.format(value=value, arg=arg)

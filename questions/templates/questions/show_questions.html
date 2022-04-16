@@ -74,6 +74,7 @@ Questions
             <div id="question-mini-list">
                 <div>
 
+
 {% for item in questions %}
 
 <div  class="s-post-summary js-post-summary">
@@ -81,12 +82,12 @@ Questions
 
 
         <div class="s-post-summary--stats-item s-post-summary--stats-item__emphasized" title="Score of 0">
-            <span class="s-post-summary--stats-item-number">{{item.rating}}</span>
-            <span class="s-post-summary--stats-item-unit">votes</span>
+            <span class="s-post-summary--stats-item-number">{{item.rating|add_text:'vote'}}</span>
+            <span class="s-post-summary--stats-item-unit"></span>
         </div>
         <div class="s-post-summary--stats-item  " title="0 answers">
-            <span class="s-post-summary--stats-item-number">0</span>
-            <span class="s-post-summary--stats-item-unit">answers</span>
+            <span class="s-post-summary--stats-item-number">{{item.q_to_ans.count|add_text:'answer'}}</span>
+            <span class="s-post-summary--stats-item-unit"></span>
         </div>
 
 
@@ -136,7 +137,7 @@ Questions
                 <a href=""
                    class="s-link s-link__muted">
                     <span title="{{item.added_at}}" class="relativetime">
-                        {{item.added_at|time_difference}}
+                        asked {{item.added_at|time_difference}}
                     </span>
                 </a>
             </time>

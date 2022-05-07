@@ -7,3 +7,6 @@ def index(response):
     return render(response, 'main/index.html')
 
 
+def subscribe(response):
+    return render(response, 'main/subscribe.html')
+

@@ -39,7 +39,30 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/Product/product.css?v=f5d2db9a2252">
     <script defer src="https://cdn.sstatic.net/Js/product/animations.en.js?v=660a00b4b4f3"></script>
     <script defer src="https://cdn.sstatic.net/Js/product/lazy-load-images.en.js?v=767e999ba5d5"></script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
+       ym(88728827, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/88728827" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8LHP00VJMB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8LHP00VJMB');
+    </script>
         <link rel="alternate" type="application/atom+xml" title="Feed of recent questions" href="/feeds">
 
     <style>
@@ -147,10 +170,6 @@
 <header class="s-topbar ps-fixed t0 l0 js-top-bar">
 
     <div class="s-topbar--container" role="menubar">
-            <a href="#" class="s-topbar--menu-btn js-left-sidebar-toggle" role="menuitem" aria-haspopup="true" aria-controls="left-sidebar" aria-expanded="false"><span></span></a>
-                <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno">
-                    <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm md lg"></div>
-                </div>
                     <a href="/questions" class="s-topbar--logo js-gps-track"
                         data-gps-track="top_nav.click({is_current:true, location:1, destination:8})">
                         <span class="-img _glyph">Stack Overflow</span>
@@ -159,64 +178,72 @@
 <!--!important top bar-->
            <ol class="s-navigation" role="presentation">
 
-                    <li class="md:d-none">
-                        <a href="/questions" class="s-navigation--item js-gps-track"
-                           data-gps-track="top_nav.products.click({location:1, destination:7})"
-                            data-ga="[&quot;top navigation&quot;,&quot;about menu click&quot;,null,null,null]">Questions</a>
-                    </li>
+                <li>
+                    <a href="/questions"
+                       class="s-navigation--item js-gps-track"
+                       data-ga="[&quot;top navigation&quot;,&quot;about menu click&quot;,null,null,null]">
+                        Questions
+                    </a>
+                </li>
 
                 <li>
                     <a href="/questions/ask"
-                        class="s-navigation--item js-gps-track js-products-menu"
+                        class="s-navigation--item js-gps-track"
                         aria-controls="products-popover"
                         data-controller="s-popover"
                         data-action="s-popover#toggle"
                         data-s-popover-placement="bottom"
                         data-s-popover-toggle-class="is-selected"
-                        data-gps-track="top_nav.products.click({location:1, destination:1})"
                         data-ga="[&quot;top navigation&quot;,&quot;products menu click&quot;,null,null,null]">
                         Ask
                     </a>
                 </li>
+
+               <li>
+                    <a href="/subscribe" class="s-navigation--item js-gps-track"
+                       data-gps-track="top_nav.products.click({location:1, destination:7})"
+                        data-ga="[&quot;top navigation&quot;,&quot;about menu click&quot;,null,null,null]">Subscriptions</a>
+                </li>
+
             </ol>
 
-            <form id="search" role="search" action=/search class="flex--item fl-grow1 searchbar px12 js-searchbar " autocomplete="off">
-                    <div class="ps-relative">
-                        <input name="q"
-                               type="text"
-                               placeholder="Search&#x2026;"
-                               value=""
-                               autocomplete="off"
-                               maxlength="120"
-                               class="s-input s-input__search js-search-field "
-                               aria-label="Search"
-                               aria-controls="top-search"
-                               data-controller="s-popover"
-                               data-action="focus->s-popover#show"
-                               data-s-popover-placement="bottom-start"/>
-                        <svg aria-hidden="true" class="s-input-icon s-input-icon__search svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="m18 16.5-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5ZM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0Z"/></svg>
-                        <div class="s-popover p0 wmx100 wmn4 sm:wmn-initial js-top-search-popover" id="top-search" role="menu">
-    <div class="s-popover--arrow"></div>
-    <div class="js-spinner p24 d-flex ai-center jc-center d-none">
-        <div class="s-spinner s-spinner__sm fc-orange-400">
-            <div class="v-visible-sr">Loading&#x2026;</div>
-        </div>
-    </div>
+<!--            <form id="search" role="search" action=/search class="flex&#45;&#45;item fl-grow1 searchbar px12 js-searchbar " autocomplete="off">-->
+<!--                    <div class="ps-relative">-->
+<!--                        <input name="q"-->
+<!--                               type="text"-->
+<!--                               placeholder="Search&#x2026;"-->
+<!--                               value=""-->
+<!--                               autocomplete="off"-->
+<!--                               maxlength="120"-->
+<!--                               class="s-input s-input__search js-search-field "-->
+<!--                               aria-label="Search"-->
+<!--                               aria-controls="top-search"-->
+<!--                               data-controller="s-popover"-->
+<!--                               data-action="focus->s-popover#show"-->
+<!--                               data-s-popover-placement="bottom-start"/>-->
+<!--                        <svg aria-hidden="true" class="s-input-icon s-input-icon__search svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="m18 16.5-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5ZM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0Z"/></svg>-->
+<!--                        <div class="s-popover p0 wmx100 wmn4 sm:wmn-initial js-top-search-popover" id="top-search" role="menu">-->
+<!--    <div class="s-popover&#45;&#45;arrow"></div>-->
+<!--    <div class="js-spinner p24 d-flex ai-center jc-center d-none">-->
+<!--        <div class="s-spinner s-spinner__sm fc-orange-400">-->
+<!--            <div class="v-visible-sr">Loading&#x2026;</div>-->
+<!--        </div>-->
+<!--    </div>-->
 
-    <span class="v-visible-sr js-screen-reader-info"></span>
-    <div class="js-ac-results overflow-y-auto hmx3 d-none"></div>
+<!--    <span class="v-visible-sr js-screen-reader-info"></span>-->
+<!--    <div class="js-ac-results overflow-y-auto hmx3 d-none"></div>-->
 
-    <div class="js-search-hints" aria-describedby="Tips for searching"></div>
-</div>
-                    </div>
-            </form>
+<!--    <div class="js-search-hints" aria-describedby="Tips for searching"></div>-->
+<!--</div>-->
+<!--                    </div>-->
+<!--            </form>-->
 
 
 
 <ol class="s-navigation" role="presentation">
 
         {% if user.is_authenticated %}
-            <li class="md:d-none">
+            <li>
                 <a href="https://stackoverflow.co/" class="s-navigation--item js-gps-track"
                    data-gps-track="top_nav.products.click({location:1, destination:7})"
                    data-ga="[&quot;top navigation&quot;,&quot;about menu click&quot;,null,null,null]">{{user.username}}</a>
@@ -235,88 +262,6 @@
             </li>
         {% endif %}
 
-    <li class="js-topbar-dialog-corral" role="presentation">
-
-
-    <div class="topbar-dialog siteSwitcher-dialog dno" role="menu">
-        <div class="header fw-wrap">
-            <h3 class="flex--item">
-                <a href="https://stackoverflow.com">current community</a>
-            </h3>
-            <div class="flex--item fl1">
-                <div class="ai-center d-flex jc-end">
-                    <button
-                        class="js-close-button s-btn s-btn__muted p0 ml8 d-none sm:d-block"
-                        type="button"
-                        aria-label="Close"
-                    >
-                        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41 13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9 15 4.41Z"/></svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="modal-content bg-powder-050 current-site-container">
-            <ul class="current-site ">
-                    <li class="d-flex">
-                            <div class="fl1">
-                <a href=""
-       class="current-site-link site-link js-gps-track d-flex gs8 gsx"
-       data-id="1"
-       data-gps-track="site_switcher.click({ item_type:3 })">
-        <div class="favicon favicon-stackoverflow site-icon flex--item" title="Stack Overflow"></div>
-        <span class="flex--item fl1">
-            Stack Overflow
-        </span>
-    </a>
-
-    </div>
-    <div class="related-links">
-            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
-            <a href="https://chat.stackoverflow.com/?tab=site&amp;host=stackoverflow.com" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
-    </div>
-
-                    </li>
-                    <li class="related-site d-flex">
-                            <div class="L-shaped-icon-container">
-        <span class="L-shaped-icon"></span>
-    </div>
-
-                            <a href="https://meta.stackoverflow.com"
-       class=" site-link js-gps-track d-flex gs8 gsx"
-       data-id="552"
-       data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
-        <div class="favicon favicon-stackoverflowmeta site-icon flex--item" title="Meta Stack Overflow"></div>
-        <span class="flex--item fl1">
-            Meta Stack Overflow
-        </span>
-    </a>
-
-                    </li>
-            </ul>
-        </div>
-
-        <div class="header" id="your-communities-header">
-            <h3>
-your communities            </h3>
-
-        </div>
-        <div class="modal-content" id="your-communities-section">
-
-                <div class="call-to-login">
-<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2f" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2f" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.                </div>
-        </div>
-
-        <div class="header">
-            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
-            </h3>
-            <a href="https://stackoverflow.blog" class="float-right">company blog</a>
-        </div>
-        <div class="modal-content">
-                <div class="child-content"></div>
-        </div>
-    </div>
-
-    </li>
 </ol>
 
     </div>

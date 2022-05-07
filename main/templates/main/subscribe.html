@@ -1,0 +1,258 @@
+{% extends 'main/base.html' %}
+{% load question_filters %}
+
+{% block title%}
+Subscribe
+{% endblock %}
+
+{% block content%}
+<div class="container" style="padding-top: 20px;">
+    <div id="content" class="snippet-hidden" >
+        <main>
+            <div class="bb bc-black-050">
+                <div class="d-flex flex__allitems3 gs24 mln32 mrn32 sm:ml0 sm:mr0 ff-row-wrap sm:fd-column jc-center fc-black-750">
+                    <div id="p-pricing-grid-free" class="flex--item d-flex fd-column wmn3">
+                        <div class="bg-white bar-lg ba bc-black-075 h100 p24 fs-body2 d-flex fd-column"><h2
+                                class="p-ff-source px8 py4 as-start bar-sm bg-orange-500 fc-white fs-body3"> Free </h2>
+                            <div class="bb bc-orange-500 pb24 mb24">
+                                <div class="p-ff-roboto-slab-bold fw-bold fs-headline1 p-font-smooth lh-xs pt12 mb6">
+                                    Free
+                                </div>
+                                <div class="fc-black-350 fs-body2">No credit card required</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconBullhorn">
+                                        <path d="M16 1a1 1 0 00-1 1v.38L5.3 6A2 2 0 004 7.9v2.22a2 2 0 001 1.74v1.65a3.5 3.5 0 006.87.95L15 15.63V16a1 1 0 102 0V2a1 1 0 00-1-1zM6.6 12.47l3.76 1.42a1.9 1.9 0 01-3.76-.39v-1.03zM2 6a1 1 0 00-1 1v4a1 1 0 102 0V7a1 1 0 00-1-1z"></path>
+                                    </svg>
+                                </div>
+                                <div>ChatOps integrations - Slack & Microsoft Teams</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconShield">
+                                        <path d="M2 4l7-3 7 3v5.02C16 13.69 10.69 17 9 17c-1.69 0-7-3.31-7-7.98V4zm6.14 5.2L7 12h4L9.86 9.2a.58.58 0 01.25-.59c.56-.36.89-.95.89-1.61 0-1.09-.94-2-2.02-2A2 2 0 007 7c0 .66.33 1.25.89 1.61.2.13.3.36.25.59z"></path>
+                                    </svg>
+                                </div>
+                                <div>Your own private space hosted on stackoverflow.com</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconArchive">
+                                        <path d="M3 1a2 2 0 00-2 2v1h16V3a2 2 0 00-2-2H3zM2 5h14v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm4 3a1 1 0 001 1h4a1 1 0 100-2H7a1 1 0 00-1 1z"></path>
+                                    </svg>
+                                </div>
+                                <div>Structured and searchable knowledge base</div>
+                            </div>
+                            <div class="mt-auto"><a href="https://stackoverflow.com/teams/create/free"
+                                                    class="s-btn mt24 d-block as-stretch fs-body2 px32 bar-md p-ff-source-bold bg-orange-500 h:bg-orange-600 fc-white">Create
+                                a free Team</a></div>
+                            <p class="fc-black-300 mb0 ta-center pt12"> Always free up to 50 teammates </p></div>
+                    </div>
+                    <div id="p-pricing-grid-basic" class="flex--item d-flex fd-column wmn3">
+                        <div class="bg-white bar-lg ba bc-black-075 h100 p24 fs-body2 d-flex fd-column"><h2
+                                class="p-ff-source px8 py4 as-start bar-sm bg-black-150 fc-black-750 fs-body3">
+                            Basic </h2>
+                            <div class="bb bc-black-075 pb24 mb24">
+                                <div class="p-ff-roboto-slab-bold fw-bold fs-headline1 p-font-smooth lh-xs pt12 mb6">
+                                    <span>$6 USD</span></div>
+                                <div class="fc-black-350 fs-body2">per teammate / month</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconKey">
+                                        <path d="M17 5.5a4.5 4.5 0 01-5.8 4.3L10 11H8v2H6v2H4v2H1v-3.5l7.1-7.1A4.52 4.52 0 0112.5 1 4.5 4.5 0 0117 5.5zm-4 1a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                                    </svg>
+                                </div>
+                                <div>Single sign-on (SSO) with SAML + Okta integration</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconBullhorn">
+                                        <path d="M16 1a1 1 0 00-1 1v.38L5.3 6A2 2 0 004 7.9v2.22a2 2 0 001 1.74v1.65a3.5 3.5 0 006.87.95L15 15.63V16a1 1 0 102 0V2a1 1 0 00-1-1zM6.6 12.47l3.76 1.42a1.9 1.9 0 01-3.76-.39v-1.03zM2 6a1 1 0 00-1 1v4a1 1 0 102 0V7a1 1 0 00-1-1z"></path>
+                                    </svg>
+                                </div>
+                                <div>ChatOps integrations - Slack & Microsoft Teams</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconShield">
+                                        <path d="M2 4l7-3 7 3v5.02C16 13.69 10.69 17 9 17c-1.69 0-7-3.31-7-7.98V4zm6.14 5.2L7 12h4L9.86 9.2a.58.58 0 01.25-.59c.56-.36.89-.95.89-1.61 0-1.09-.94-2-2.02-2A2 2 0 007 7c0 .66.33 1.25.89 1.61.2.13.3.36.25.59z"></path>
+                                    </svg>
+                                </div>
+                                <div>Your own private space hosted on stackoverflow.com</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconArchive">
+                                        <path d="M3 1a2 2 0 00-2 2v1h16V3a2 2 0 00-2-2H3zM2 5h14v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm4 3a1 1 0 001 1h4a1 1 0 100-2H7a1 1 0 00-1 1z"></path>
+                                    </svg>
+                                </div>
+                                <div>Structured and searchable knowledge base</div>
+                            </div>
+                            <div class="mt-auto"><a href="https://stackoverflow.com/teams/create/basic"
+                                                    class="s-btn mt24 d-block as-stretch fs-body2 px32 bar-md p-ff-source-bold bg-black-075 h:bg-black-150 fc-powder-900">Get
+                                started</a></div>
+                            <p class="fc-black-300 mb0 ta-center pt12">Up to 250 teammates</p></div>
+                    </div>
+                    <div id="p-pricing-grid-business"
+                         class="flex--item d-flex fd-column wmn3 bg-bottom bg-no-repeat bg-contain ps-relative z-active fc-black-750"
+                         style="background-image:url(/img/product/teams/illo-teams-pricing-shadow.svg)">
+                        <div class="px16 py8 bg-black-050 d:bg-black-025 bl bt br bc-black-100 btr-lg fs-body2 p-ff-source-bold fs-body1 ps-absolute lg:ps-static b100 l0 r0 tt-uppercase">
+                            <svg aria-hidden="true" width="18" height="18" class="float-right svg-icon iconIndustry">
+                                <path d="M10 16v-4H8v4H2V4c0-1.1.9-2 2-2h6c1.09 0 2 .91 2 2v2h2c1.09 0 2 .91 2 2v8h-6zM4 4v2h2V4H4zm0 4v2h2V8H4zm4-4v2h2V4H8zm0 4v2h2V8H8zm-4 4v2h2v-2H4zm8 0v2h2v-2h-2zm0-4v2h2V8h-2z"></path>
+                            </svg>
+                            Recommended
+                        </div>
+                        <div class="p24 h100 bg-black-025 bl br bb bbr-lg bc-black-100 p-bs-wrapper fs-body2 d-flex fd-column">
+                            <h2 class="p-ff-source px8 py4 as-start bar-sm bg-black-700 fc-white fs-body3">
+                                Business </h2>
+                            <div class="bb bc-black-075 pb24 mb24">
+                                <div class="p-ff-roboto-slab-bold fw-bold fs-headline1 p-font-smooth lh-xs pt12 mb6">
+                                    <span>$12 USD</span></div>
+                                <div class="fc-black-350 fs-body2">per teammate / month</div>
+                            </div>
+                            <div class="d-flex mb12 fc-black-400 mb24">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconPlus">
+                                        <path d="M10 2H8v6H2v2h6v6h2v-6h6V8h-6V2z"></path>
+                                    </svg>
+                                </div>
+                                <div>All the features of Basic plus…</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconDocumentAlt">
+                                        <path d="M5 3a2 2 0 00-2 2v10c0 1.1.9 2 2 2h7a2 2 0 002-2V5a2 2 0 00-2-2H5zm2 3a1 1 0 11-2 0 1 1 0 012 0zm-2 4.5c0-.28.22-.5.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5zm.5 1.5h6a.5.5 0 010 1h-6a.5.5 0 010-1zM5 14.5c0-.28.22-.5.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"></path>
+                                        <path opacity=".4"
+                                              d="M5.9 2h6.35A2.75 2.75 0 0115 4.75v9.35c.62-.6 1-1.43 1-2.35v-7.5C16 2.45 14.54 1 12.75 1h-4.5c-.92 0-1.75.38-2.35 1z"></path>
+                                    </svg>
+                                </div>
+                                <div>Long-form knowledge with Articles</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconLink">
+                                        <path d="M7.22 11.83a6 6 0 001.62.85l.61-1.8a4.1 4.1 0 114.04-.8l1.26 1.42a6 6 0 10-7.53.33zm3.43-5.6a6 6 0 00-1.6-.87L8.4 7.15a4.1 4.1 0 11-4.05.73L3.12 6.43a6 6 0 107.53-.2z"></path>
+                                    </svg>
+                                </div>
+                                <div>Additional integrations — ChatOps, Jira, GitHub & Okta</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconCollection">
+                                        <path d="M5 3a2 2 0 00-2 2v7c0 1.1.9 2 2 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2.5c0-.28.22-.5.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM5.5 8h9a.5.5 0 010 1h-9a.5.5 0 010-1zM5 11.5c0-.28.22-.5.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"></path>
+                                        <path opacity=".4"
+                                              d="M15.09 15H4.74A2.75 2.75 0 012 12.23V4.9c-.61.59-1 1.42-1 2.34v5.5C1 14.54 2.45 16 4.24 16h8.5c.92 0 1.76-.38 2.35-1z"></path>
+                                    </svg>
+                                </div>
+                                <div>Group content together into Collections</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconGraph">
+                                        <path d="M3 1h12c1.09 0 2 .91 2 2v12c0 1.09-.91 2-2 2H3c-1.09 0-2-.91-2-2V3c0-1.1.9-2 2-2zm1 8v5h2V9H4zm4-5v10h2V4H8zm4 3v7h2V7h-2z"></path>
+                                    </svg>
+                                </div>
+                                <div>Usage and adoption metrics</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconHealth">
+                                        <path d="M9 1L2 4v5.02C2 13.69 7.31 17 9 17c1.69 0 7-3.31 7-7.98V4L9 1zm1 9v3H8v-3H5V8h3V5h2v3h3v2h-3z"></path>
+                                    </svg>
+                                </div>
+                                <div>Priority customer support</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconTool">
+                                        <path d="M4.2 1.33a4.99 4.99 0 016.47 6.47L17 14.13l-2.88 2.88-6.34-6.34a4.99 4.99 0 01-6.45-6.45l3.22 3.2 2.88-2.87L4.2 1.33z"></path>
+                                    </svg>
+                                </div>
+                                <div>Content Health</div>
+                            </div>
+                            <div class="mt-auto"><a href="https://stackoverflow.com/teams/create/business"
+                                                    class="s-btn mt24 d-block as-stretch fs-body2 px32 bar-md p-ff-source-bold bg-black-700 h:bg-black-600 fc-white">Get
+                                started</a></div>
+                            <p class="fc-black-300 mb0 ta-center pt12">Unlimited teammates</p></div>
+                    </div>
+                    <div id="p-pricing-grid-enterprise" class="flex--item d-flex fd-column wmn3">
+                        <div class="bg-white bar-lg ba bc-black-075 h100 p24 fs-body2 d-flex fd-column"><h2
+                                class="p-ff-source px8 py4 as-start bar-sm p-bg-purple d:p-bg-purple-alt fc-white d:fc-black fs-body3">
+                            Enterprise
+                        </h2>
+                            <div class="bb bc-black-100 pb24 mb24">
+                                <div class="p-ff-roboto-slab-bold fw-bold fs-headline1 p-font-smooth lh-xs pt12 mb6">
+                                    Custom pricing
+                                </div>
+                                <div class="fc-black-350 fs-body2"> Let’s talk about what you need</div>
+                            </div>
+                            <div class="d-flex mb12 fc-black-400 mb24">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconPlus">
+                                        <path d="M10 2H8v6H2v2h6v6h2v-6h6V8h-6V2z"></path>
+                                    </svg>
+                                </div>
+                                <div>Premium features of Business plus…</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconPeople">
+                                        <path d="M17 14c0 .44-.45 1-1 1H9a1 1 0 01-1-1H2c-.54 0-1-.56-1-1 0-2.63 3-4 3-4s.23-.4 0-1c-.84-.62-1.06-.59-1-3 .06-2.42 1.37-3 2.5-3s2.44.58 2.5 3c.06 2.41-.16 2.38-1 3-.23.59 0 1 0 1s1.55.71 2.42 2.09c.78-.72 1.58-1.1 1.58-1.1s.23-.4 0-1c-.84-.61-1.06-.58-1-3 .06-2.41 1.37-3 2.5-3s2.44.59 2.5 3c.05 2.42-.16 2.39-1 3-.23.6 0 1 0 1s3 1.38 3 4z"></path>
+                                    </svg>
+                                </div>
+                                <div>Unlimited Teams within your instance</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconPeak">
+                                        <path d="M10.5 3.5L8 7.25l2 2.25L8.5 11l-3-3.5L1 14h16L10.5 3.5z"></path>
+                                    </svg>
+                                </div>
+                                <div>Flexible hosting options — cloud or on-premises</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconCode">
+                                        <path d="M8 4.41L6.59 3l-6 6 6 6L8 13.59 3.41 9 8 4.41zm2 0L11.41 3l6 6-6 6L10 13.59 14.59 9 10 4.41z"></path>
+                                    </svg>
+                                </div>
+                                <div>Robust read and write API</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18"
+                                         class="svg-icon iconSpeechBubbleQuestion">
+                                        <path d="M1 17l3-3h11c1.09 0 2-.91 2-2V3c0-1.09-.91-2-2-2H3a2 2 0 00-2 2v14zm7.96-4.94c-.57-.02-1.03-.43-1.01-1.06.02-.63.5-1.04 1.08-1.02.6.02 1.05.45 1.03 1.08-.02.63-.48 1.02-1.1 1zm.92-3.68a3.6 3.6 0 00-.08.65c0 .04-.03.14-.16.14h-1.4c-.14 0-.16-.09-.16-.13-.01-.5.11-.99.36-1.42.2-.36.58-.65 1.06-.93.41-.23.78-.71.78-1.2 0-.27-.09-.53-.26-.74-.22-.26-.46-.4-.92-.4-.45 0-.83.23-1.02.52-.17.27-.16.55-.16.83v.11H6.2c0-1.17.31-1.92.98-2.36a3.5 3.5 0 011.83-.44c.88 0 1.58.16 2.2.62.58.42.88 1.02.88 1.82 0 .5-.17.9-.43 1.24-.15.2-.44.47-.86.8l-.48.3c-.2.14-.36.35-.44.6z"></path>
+                                    </svg>
+                                </div>
+                                <div> Your own customer success and community building representative</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconHealth">
+                                        <path d="M9 1L2 4v5.02C2 13.69 7.31 17 9 17c1.69 0 7-3.31 7-7.98V4L9 1zm1 9v3H8v-3H5V8h3V5h2v3h3v2h-3z"></path>
+                                    </svg>
+                                </div>
+                                <div>99.5% uptime SLA and priority support</div>
+                            </div>
+                            <div class="d-flex mb12">
+                                <div class="mr12">
+                                    <svg aria-hidden="true" width="18" height="18" class="svg-icon iconTool">
+                                        <path d="M4.2 1.33a4.99 4.99 0 016.47 6.47L17 14.13l-2.88 2.88-6.34-6.34a4.99 4.99 0 01-6.45-6.45l3.22 3.2 2.88-2.87L4.2 1.33z"></path>
+                                    </svg>
+                                </div>
+                                <div>Content Health</div>
+                            </div>
+                            <div class="mt-auto"><a href="https://stackoverflow.co/explore-teams"
+                                                    class="s-btn mt24 d-block as-stretch fs-body2 px32 bar-md p-ff-source-bold p-bg-purple d:p-bg-purple-alt h:p-bg-purple-tint fc-white d:fc-black">Request
+                                a demo</a></div>
+                            <p class="fc-black-300 mb0 ta-center pt12">Unlimited teammates</p></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+{% endblock %}
